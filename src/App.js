@@ -12,7 +12,7 @@ import ProductDetails from "./Pages/ProductDetails";
 import SignIn from "./Pages/SignIn";
 import Register from "./Pages/Register";
 import MyAccount from "./Pages/MyAccount";
-
+import Search from "./Pages/Search";
 
 function App() {
   const [theme] = useThemeHook();
@@ -22,6 +22,7 @@ function App() {
       <Router>
         <Home path="/" />
         <MyAccount path="my-account" />
+        <Search path="search" />
         <SignIn path="sign-in"/>
         <Register path="register"/>
         <ProductDetails path="product-details/:productId"/>
