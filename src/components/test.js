@@ -62,7 +62,7 @@ const Header = () => {
         <span style={{ 
             fontSize: '16px', 
             fontWeight: 'bold', 
-            lineHeight: '1.4',
+          
             maxWidth: '1000px',  // Optional: Limit width for larger screens
             width: '100%',       // Ensure it scales with screen width
             textAlign: 'center' , // Center text within the banner

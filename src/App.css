@@ -11,11 +11,14 @@
 .text-light-black{
   color: #262626;
 }
+.bg-slider-black {
+  background-color: rgba(107, 105, 105, 0.85) !important; /* White with slight transparency */
+}
 .bg-dark-primary{
-  background-color: #fcbc73 !important;
+  background-color: #c0bfbf !important;
 }
 .text-dark-primary{
-  color: #fcbc73 !important;
+  color: #c0bfbf !important;
 }
 
 /* theme light */
@@ -26,10 +29,10 @@
   background-color: #dadcde;
 }
 .bg-light-primary{
-  background-color: #191659 !important;
+  background-color: #121212 !important;
 }
 .text-light-primary{
-  color: #191659 !important;
+  color: #121212 !important;
 }
 
 

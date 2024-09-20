@@ -1,56 +1,58 @@
-import React, {useEffect, useState} from 'react';
-import { Container, Row, Col, InputGroup, FormControl } from 'react-bootstrap';
+import React from 'react';
+import { Carousel, Image, Container, Row, Col, Button } from 'react-bootstrap'; // Import necessary components
+import slider1 from '../images/slider1.webp';
+import slider2 from '../images/slider2.webp';
+import '../Css/homee.css'; 
 import { useThemeHook } from '../GlobalComponents/ThemeProvider';
-import { BiSearch } from 'react-icons/bi';
-import SearchFilter from 'react-filter-search';
-import ProductCard from '../components/ProductCard';
-
 const Home = () => {
     const [theme] = useThemeHook();
-    const [searchInput, setSearchInput] = useState('');
-    const [productData, setProductData] = useState([]);
-
-    async function getResponse(){
-        const res = await fetch('https://fakestoreapi.com/products')
-                          .then(res=> res.json());
-                          setProductData(await res);
-    }
-
-    useEffect(()=>{
-        getResponse();
-    },[]);
-
     return (
-        <Container className="py-4 mt-5">
-            <Row className="justify-content-center">
-                <Col xs={10} md={7} lg={6} xl={4} className="mb-3 mx-auto text-center">
-                    <h1 className={theme? 'text-light my-5': 'text-black my-5'}>Search products</h1>
-                    <InputGroup className="mb-3">
-                        <InputGroup.Text className={theme? 'bg-black text-dark-primary': 'bg-light text-light-primary'}>
-                            <BiSearch size="2rem" />
-                        </InputGroup.Text>
-                        <FormControl 
-                            placeholder="Search"
-                            value={searchInput}
-                            onChange={(e)=> setSearchInput(e.target.value)}
-                            className={theme? 'bg-light-black text-light': 'bg-light text-black'}
-                        />
-                    </InputGroup>
-                </Col>
-                <SearchFilter 
-                    value={searchInput}
-                    data={productData}
-                    renderResults={results =>(
-                        <Row className="justify-content-center">
-                            {results.map((item, i)=>(
-                                <ProductCard data={item} key={i} />
-                            ))}
-                        </Row>
-                    )}
+        <Carousel interval={2000} className="responsive-carousel">
+            <Carousel.Item>
+                <Image
+                    src={slider1}
+                    className="d-block w-100 carousel-image"
+                    alt="First slide"
                 />
-                
-            </Row>
-        </Container>
+               <Carousel.Caption  className={theme? 'bg-slider-black text-light': 'bg-light text-black'}>
+                    <Container >
+                        <Row className="justify-content-center">
+                            <Col md={8} className="text-center">
+                                <h3 className={theme? 'text-light my-3': 'text-black my-3'}>EXPLORE OUR SCENTS</h3>
+                                <p  className={theme? 'text-light': 'text-black '}>
+                                    YOUR SCENT CAN EXPRESS YOUR PERSONALITY, PRESENCE, AND YOUR STYLE.
+                                    EMBRACE YOUR PRESENCE WITH OUR EXQUISITE COLLECTION OF FRAGRANCES.
+                                </p>
+                                {/* <Button variant="outline-secondary" className="SHOP">SHOP FRAGRANCES</Button> */}
+                                <button type="button" className={theme? 'text-light btn m-3': 'text-black btn m-3'} >SHOP FRAGRANCES</button>
+                            </Col>
+                        </Row>
+                    </Container>
+                </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+                <Image
+                    src={slider2}
+                    className="d-block w-100 carousel-image"
+                    alt="Second slide"
+                />
+                <Carousel.Caption  className={theme? 'bg-slider-black text-light': 'bg-light text-black'}>
+                    <Container >
+                        <Row className="justify-content-center">
+                        <Col md={8} className="text-center">
+                                <h3 className={theme? 'text-light my-3': 'text-black my-3'}>EXPLORE OUR SCENTS</h3>
+                                <p  className={theme? 'text-light': 'text-black '}>
+                                    YOUR SCENT CAN EXPRESS YOUR PERSONALITY, PRESENCE, AND YOUR STYLE.
+                                    EMBRACE YOUR PRESENCE WITH OUR EXQUISITE COLLECTION OF FRAGRANCES.
+                                </p>
+                                {/* <Button variant="outline-secondary" className="SHOP">SHOP FRAGRANCES</Button> */}
+                                <button type="button" className={theme? 'text-light btn m-3': 'text-black btn m-3'}>SHOP FRAGRANCES</button>
+                            </Col>
+                        </Row>
+                    </Container>
+                </Carousel.Caption>
+            </Carousel.Item>
+        </Carousel>
     );
 };
 

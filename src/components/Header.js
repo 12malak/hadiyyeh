@@ -3,14 +3,17 @@ import { Container, Navbar, Nav,Image } from 'react-bootstrap';
 import { ThemeContext } from '../GlobalComponents/ThemeProvider';
 import { BiSun, BiMoon, BiCart } from 'react-icons/bi';
 import { VscAccount } from 'react-icons/vsc';
-import { Link } from "@reach/router";
+import { Link } from "react-router-dom";
+
 import { useCart } from "react-use-cart";
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import './header.css'
 import { IoIosSearch } from "react-icons/io";
 import { CiFacebook, CiInstagram } from "react-icons/ci";
+import { FaFacebook } from "react-icons/fa";
 import { RiTiktokFill } from "react-icons/ri";
+import { MdGTranslate } from "react-icons/md";
 import Logo from '../images/Logo.avif';
 const Header = () => {
     const { theme, setThemeMode } = useContext(ThemeContext); 
@@ -47,25 +50,26 @@ const Header = () => {
          {/* Banner section for the discount code */}
          <div className="banner-fixed">
              {/* Icons on the right side */}
-             <div style={{
-                  display: 'flex',
-               
-                  justifyContent: 'flex-end',
-                  gap: '20px',
-               paddingRight:'9.5%',
-                   
-                }}>
+             <div 
+                className="text-Icons show-on-large"
+              >
                     <a href="https://www.facebook.com" target="_blank" rel="noreferrer" className="text-light">
-                        <CiFacebook size="1.5rem" />
+                        <FaFacebook size="1.3rem" />
                     </a>
                     <a href="https://www.instagram.com" target="_blank" rel="noreferrer" className="text-light">
-                        <CiInstagram size="1.5rem" />
+                        <CiInstagram size="1.3rem" />
                     </a>
                     <a href="https://www.tiktok.com" target="_blank" rel="noreferrer" className="text-light">
-                        <RiTiktokFill size="1.5rem" />
+                        <RiTiktokFill size="1.3rem" />
                     </a>
                 </div>
-                    <span>
+                    <span style={{ 
+          
+           
+            maxWidth: '1000px',  // Optional: Limit width for larger screens
+            width: '100%',       // Ensure it scales with screen width
+            textAlign: 'center' , // Center text within the banner
+        }}>
                         USE CODE "10OFF" FOR 10% OFF ON ORDERS WORTH 50 JDS & ABOVE
                     </span>
                 </div>
@@ -111,11 +115,14 @@ const Header = () => {
                     <Link to="my-account" className={`nav-link ${darkMode ? 'text-dark-primary' : 'text-light-primary'}`}>
                         <VscAccount size="1.2rem" />
                     </Link>
+                    <Link to="my-account" className={`nav-link ${darkMode ? 'text-dark-primary' : 'text-light-primary'}`}>
+                        <MdGTranslate size="1.2rem" />
+                    </Link>
                 </Nav>
             </Container>
         </Navbar>
             {/* Bottom section with navigation links */}
-            {[false, 'sm', 'md', 'lg', 'xl', 'xxl'].map((expand) => (
+            {[false, 'sm', 'md','lg', 'xl'].map((expand) => (
                 <Navbar key={expand} expand={expand} variant={darkMode ? 'dark' : 'light'} className={`navbar2-fixed ${darkMode ? 'bg-light-black border-bottom' : 'bg-light border-bottom'}`} >
                     <Container fluid>
                         <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
@@ -130,6 +137,8 @@ const Header = () => {
                                 </Offcanvas.Title>
                             </Offcanvas.Header>
                             <Offcanvas.Body>
+                           
+      
                                 <Nav className="justify-content-center flex-grow-1 pe-3">
                                     <Nav.Link href="#action1">HOME</Nav.Link>
                                    
@@ -167,6 +176,19 @@ const Header = () => {
                                     <Nav.Link href="#action2">GIFT CARDS</Nav.Link>
                                     <Nav.Link href="#action2">ALL PRODUCTS</Nav.Link>
                                 </Nav>
+
+                                  {/* Social media icons (hidden on large screens, visible on small screens) */}
+        <div className="social-icons-toggle">
+            <a href="https://www.facebook.com" target="_blank" rel="noreferrer" className="text-dark">
+                <FaFacebook size="1.3rem" />
+            </a>
+            <a href="https://www.instagram.com" target="_blank" rel="noreferrer" className="text-dark">
+                <CiInstagram size="1.3rem" />
+            </a>
+            <a href="https://www.tiktok.com" target="_blank" rel="noreferrer" className="text-dark">
+                <RiTiktokFill size="1.3rem" />
+            </a>
+        </div>
                             </Offcanvas.Body>
                         </Navbar.Offcanvas>
                     </Container>

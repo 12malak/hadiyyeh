@@ -3,7 +3,7 @@
     width: 100%;
     position: fixed;
     z-index: 100;
-    top: 50px;
+    top: 42px;
     height: 90px;
 }
 .navbar2-fixed {
@@ -18,7 +18,7 @@
 .banner-fixed {
     background-color: #121212;
     color: #ffffff;
-    padding: 0.7% 2%;
+    padding: 0.9% 4%;
     text-align: center;
     position: fixed;
     top: 0;
@@ -29,9 +29,25 @@
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-   padding-right: 11%;
+   padding-right: 21%;
+  
 }
 
+.text-Icons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    padding-left: 7%;
+}
+/* Hide on large screens and show on small screens */
+.hide-on-large {
+    display: none;
+}
+
+/* Hide the social icons on large screens */
+.social-icons-toggle {
+    display: none;
+}
 /* Media query for small screens */
 @media (max-width: 576px) {
     .navbar-fixed {
@@ -47,6 +63,12 @@
     /* Adjust the banner text size */
     .banner-fixed span {
         font-size: 10px; /* Smaller text size */
+    }
+    
+    
+    .banner-fixed{
+      
+        padding: 0.1% 0%;
     }
 }
 
@@ -68,7 +90,32 @@
 
     /* Adjust the banner text size */
     .banner-fixed span {
-        font-size: 11px;
+        font-size: 1cqw;
+    }
+    .text-Icons a {
+        font-size: 1rem; /* Smaller icons on small screens */
+       
+    }
+    .banner-fixed{
+       
+        padding: 0.1% 2%;
+    }
+    .text-Icons{
+        gap: 20px;
+    }
+    .hide-on-large {
+        display: block;
+    }
+
+    .show-on-large {
+        display: none;
+    }
+      /* Show social icons when Navbar.Toggle is open on small screens */
+      .social-icons-toggle {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        padding: 1rem;
     }
 }
 
@@ -96,10 +143,21 @@
     .navbar-brand img {
         max-height: 60px;
     }
+    .banner-fixed{
+      
+        padding: 1.1% 4%;
+    }
 
     /* Adjust the banner text size */
     .banner-fixed span {
         font-size: 11px;
+    }
+    .text-Icons a {
+        font-size: 1rem; /* Smaller icons on small screens */
+       
+    }
+    .text-Icons{
+        gap: 0px;
     }
 }
 
@@ -134,13 +192,14 @@
     .banner-fixed span {
         font-size: 11px;
     }
+
+    .text-Icons a {
+        font-size: 1rem; /* Smaller icons on small screens */
+        
+    }
+   
 }
 
-/* Ensure the banner height is consistent across all screen sizes */
-.banner-fixed {
-    line-height: 1.4;
-    font-size: 10px;
-}
 
 /* Spacer div to avoid content being hidden under the navbar */
 
