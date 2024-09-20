@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { useCart } from "react-use-cart";
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import './header.css'
+import '../Css/header.css'
 import { IoIosSearch } from "react-icons/io";
 import { CiFacebook, CiInstagram } from "react-icons/ci";
 import { FaFacebook } from "react-icons/fa";
@@ -172,9 +172,10 @@ const Header = () => {
                                         <NavDropdown.Divider />
                                         <NavDropdown.Item href="#action5">Something else here</NavDropdown.Item>
                                     </NavDropdown>
-                                    <Nav.Link href="#action2">FRAGRANCE TYPES</Nav.Link>
-                                    <Nav.Link href="#action2">GIFT CARDS</Nav.Link>
-                                    <Nav.Link href="#action2">ALL PRODUCTS</Nav.Link>
+                                    <Nav.Link href="#action2" >FRAGRANCE TYPES</Nav.Link>
+                                    <Nav.Link href="#action2" >GIFT CARDS</Nav.Link>
+                                    <Nav.Link href="#action1" >ALL PRODUCTS</Nav.Link>
+                                  
                                 </Nav>
 
                                   {/* Social media icons (hidden on large screens, visible on small screens) */}
