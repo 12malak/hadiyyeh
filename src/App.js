@@ -14,7 +14,7 @@ import SignIn from "./Pages/SignIn";
 import Register from "./Pages/Register";
 import MyAccount from "./Pages/MyAccount";
 import Search from "./Pages/Search";
-
+import Cardes from "./Pages/Cardes";
 
 function App() {
   const [theme] = useThemeHook();
@@ -22,7 +22,7 @@ function App() {
   return (
     <Router>
        <Header />
-       <main className={theme ? 'bg-black' : 'bg-light-2'} style={{ paddingTop: '100px', height: '100vh', overflowY: 'auto' }}>
+       <main className={theme ? 'bg-black' : 'bg-light-2'} style={{ paddingTop: '100px', height: '100vh' }}>
        
         <Routes>
           <Route path="/" element={<Home />} />
@@ -31,7 +31,7 @@ function App() {
           <Route path="/search" element={<Search />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/register" element={<Register />} />
-        
+          <Route path="/cardes" element={<Cardes />} />
           <Route path="/cart" element={<Cart />} />
         </Routes>
       </main>

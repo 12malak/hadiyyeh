@@ -95,7 +95,7 @@ const Header = () => {
 
                         <Image
                                     src={Logo}
-                                    style={{ maxHeight: '70px' }}
+                                    style={{ maxHeight: '70px' , margin: '10px' }}
                                     thumbnail
                                     fluid
                                     roundedCircle
@@ -104,7 +104,7 @@ const Header = () => {
                 </Link>
 
                 {/* Right Icons: Dark mode toggle, Cart, Account */}
-                <Nav className="d-flex align-items-center">
+                <Nav className="d-flex align-items-center show-on-large ">
                     <Nav.Link className={darkMode ? 'text-dark-primary' : 'text-light-primary'} onClick={() => setDarkMode(!darkMode)}>
                         {darkMode ? <BiSun size="1.2rem" /> : <BiMoon size="1.2rem" />}
                     </Nav.Link>
@@ -189,7 +189,23 @@ const Header = () => {
             <a href="https://www.tiktok.com" target="_blank" rel="noreferrer" className="text-dark">
                 <RiTiktokFill size="1.3rem" />
             </a>
+            
         </div>
+        <Nav className=" social-icons-toggle">
+                    <Nav.Link className={darkMode ? 'text-dark-primary' : 'text-light-primary'} onClick={() => setDarkMode(!darkMode)}>
+                        {darkMode ? <BiSun size="1.2rem" /> : <BiMoon size="1.2rem" />}
+                    </Nav.Link>
+                    <Link to="/cart" className={`${darkMode ? 'text-dark-primary' : 'text-light-primary'} d-flex align-items-center`}>
+                        <BiCart size="1.4rem" />
+                        {!isEmpty && <span style={{ position: 'relative', left: '-21px', top: '-18px' }}>{totalItems}</span>}
+                    </Link>
+                    <Link to="my-account" className={`nav-link ${darkMode ? 'text-dark-primary' : 'text-light-primary'}`}>
+                        <VscAccount size="1.2rem" />
+                    </Link>
+                    <Link to="my-account" className={`nav-link ${darkMode ? 'text-dark-primary' : 'text-light-primary'}`}>
+                        <MdGTranslate size="1.2rem" />
+                    </Link>
+                </Nav>
                             </Offcanvas.Body>
                         </Navbar.Offcanvas>
                     </Container>

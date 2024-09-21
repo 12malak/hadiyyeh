@@ -1,12 +1,22 @@
+.bady{
+  background-color: white;
+      
+}
+
+
+
 .responsive-carousel {
     max-width: 100%;
     height: auto;
+    
 }
 
 .carousel-image {
-    object-fit: cover; /* Ensures images cover the area without distortion */
-    max-height: 450px; /* Adjust the max height as needed */
+    width: 100%; /* Ensure the image takes the full width */
+    height: auto; /* Adjust height to maintain aspect ratio */
+    max-height: 500px; /* You can adjust this as needed */
 }
+
 
 .carousel-caption {
     background-color: rgba(255, 255, 255, 0.85); /* White with slight transparency */
@@ -90,7 +100,7 @@
     .text-center .btn {
    
       margin-top: 0px;
-        font-size: 0.4rem;
+        font-size: 0.6rem;
         max-width: 8rem;
         
     }

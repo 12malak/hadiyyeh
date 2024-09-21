@@ -1,0 +1,26 @@
+/* Ensure all images have the same dimensions */
+.brand-image-container {
+    margin-bottom: 10px;
+  }
+  
+  .container-Brands {
+    overflow: hidden;
+  }
+  
+  .brand-image {
+    width: 100%; /* Width for images */
+    height: 400px; /* Fixed height */
+    object-fit: cover; /* Maintain aspect ratio while filling the container */
+  }
+  
+  a {
+    display: block;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  

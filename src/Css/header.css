@@ -3,8 +3,8 @@
     width: 100%;
     position: fixed;
     z-index: 100;
-    top: 42px;
-    height: 90px;
+    top: 45px;
+    height: 100px;
 }
 .navbar2-fixed {
     width: 100%;
@@ -32,16 +32,15 @@
    padding-right: 21%;
   
 }
-
+/* Show the social icons by default */
+.social-icons-toggle {
+    display: flex;
+}
 .text-Icons {
     display: flex;
     justify-content: flex-start;
     gap: 10px;
     padding-left: 7%;
-}
-/* Hide on large screens and show on small screens */
-.hide-on-large {
-    display: none;
 }
 
 /* Hide the social icons on large screens */
@@ -70,6 +69,12 @@
       
         padding: 0.1% 0%;
     }
+    .social-icons-toggle {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        padding: 1rem;
+    }
 }
 
 
@@ -86,6 +91,7 @@
     /* Adjust the logo size for medium screens */
     .navbar-brand img {
         max-height: 60px;
+        
     }
 
     /* Adjust the banner text size */
@@ -186,6 +192,7 @@
     /* Adjust the logo size for medium screens */
     .navbar-brand img {
         max-height: 60px;
+      
     }
 
     /* Adjust the banner text size */

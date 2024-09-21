@@ -3,10 +3,16 @@ import { Carousel, Image, Container, Row, Col, Button } from 'react-bootstrap'; 
 import slider1 from '../images/slider1.webp';
 import slider2 from '../images/slider2.webp';
 import '../Css/homee.css'; 
+import Cardes from './Cardes'; 
+import Watches from './Watches'; 
+import Fragrances from './Fragrances'; 
+import Bags from './Bags'; 
+import Brands from './Brandes'; 
 import { useThemeHook } from '../GlobalComponents/ThemeProvider';
 const Home = () => {
     const [theme] = useThemeHook();
     return (
+        <div >
         <Carousel interval={2000} className="responsive-carousel">
             <Carousel.Item>
                 <Image
@@ -53,6 +59,13 @@ const Home = () => {
                 </Carousel.Caption>
             </Carousel.Item>
         </Carousel>
+
+<Cardes/>
+<Fragrances/>
+<Watches/>
+<Bags/>
+<Brands/>
+        </div>
     );
 };
 

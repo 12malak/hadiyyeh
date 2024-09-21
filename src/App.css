@@ -34,8 +34,11 @@
 .text-light-primary{
   color: #121212 !important;
 }
-
+.text-silver{
+  color:rgb(241, 241, 241);
+}
 
 .react-tel-input input{
   width: 100% !important;
 }
+
