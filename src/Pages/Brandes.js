@@ -50,7 +50,7 @@ const Brands = () => {
           </a>
         </div>
       </div>
-      <div className="row mt-4">
+      <div className="row m-4">
         <div className="col-6 col-sm-4 col-md-2 text-center brand-image-container">
           <Image src={Brand1} alt="Brand 1" className="brand-image" />
           <a href="https://brand1.com" target="_blank" className={theme ? 'm-3 link-Brands' : 'text-black m-3 link-Brands'} rel="noopener noreferrer">

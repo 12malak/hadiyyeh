@@ -15,7 +15,7 @@ import Register from "./Pages/Register";
 import MyAccount from "./Pages/MyAccount";
 import Search from "./Pages/Search";
 import Cardes from "./Pages/Cardes";
-
+import Blogs from "./Pages/Blogs";
 function App() {
   const [theme] = useThemeHook();
   
@@ -33,6 +33,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/cardes" element={<Cardes />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/blogs" element={<Blogs />} />
           <Route path="/product-details" element={<ProductDetails />} />
         </Routes>
       </main>

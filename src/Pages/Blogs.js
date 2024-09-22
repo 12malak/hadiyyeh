@@ -128,64 +128,46 @@ function Blogs() {
     const [theme] = useThemeHook();
 
     
-    return (
-      
-       
-      <section className={theme? 'bg-light-black text-light screen-slider': 'bg-light text-black screen-slider'} data-aos="fade-up">
-      <div className="container-fluid text-center mt-5">
-         
-          <h3 className={theme? 'text-light we_help_you_home m-5': 'text-black we_help_you_home m-5'}>BLOG POSTS</h3>
-        
-  
-          <div className="row mt-5">
-          <Slider
-    {...settings}
-    style={{ overflow: "hidden" }}
-    className="slide"
-  >
-    {products.map((product) => (
-      <div className="col-lg-4 col-md-6 col-sm-12 product-blogs mb-5" key={product.id}>
-        
-    
-        <div className={`card card_slider_exp ${theme ? 'text-light' : 'text-black bg-light'}`}>
-
-         
-        
-        <Image
-            src={slider1}
-            className="card-img-top img-fluid img_slider_experience"
-            alt="First slide"
-          />
-        {/* Title and price section */}
-
-        <div className="card-body">
-        <h4 className={theme ? 'text-light card-title title_slider_exp' : 'text-black card-title title_slider_exp'}>
-            {product.title}
-            </h4>
-            <p className={theme ? 'text-light card-text text_slider_exp' : 'text-black card-text text_slider_exp'}>
-          {product.description  } 
-         
-        </p>
-                    </div>
-        
-      
-  
-      
-       
-          </div>
-      </div>
-    ))}
-  </Slider>
-          </div>
-         
-        </div>
-      </section>
-  
-      
-  
-        
-  
-    );
+  // Helper function to truncate text
+  const truncateText = (text, maxLength) => {
+    if (text.length > maxLength) {
+      return text.substring(0, maxLength) + '...';
+    }
+    return text;
   };
+
+  return (
+    <section className={theme ? 'bg-light-black text-light screen-slider' : 'bg-light text-black screen-slider'} data-aos="fade-up">
+      <div className="container-fluid text-center mt-5">
+        <h3 className={theme ? 'text-light we_help_you_home m-5' : 'text-black we_help_you_home m-5'}>BLOG POSTS</h3>
+        <div className="row mt-5">
+          <Slider {...settings} style={{ overflow: "hidden" }} className="slide">
+            {products.map((product) => (
+              <div className="col-lg-4 col-md-6 col-sm-12 product-blogs mb-5" key={product.id}>
+                <div className={`card card_slider_exp pb-3 ${theme ? 'text-light' : 'text-black bg-light'}`}>
+                  <Image
+                    src={slider1}
+                    className="card-img-top img-fluid img_slider_experience"
+                    alt="First slide"
+                  />
+                  {/* Title and price section */}
+                  <div className="card-body">
+                    <h4 className={theme ? 'text-light card-title title_slider_exp' : 'text-black card-title title_slider_exp'}>
+                      {product.title}
+                    </h4>
+                    <p className={theme ? 'text-light card-text text_slider_exp' : 'text-black card-text text_slider_exp'}>
+                      {truncateText(product.description, 190)} {/* Limit description to 100 characters */}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </Slider>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 
 export default Blogs
