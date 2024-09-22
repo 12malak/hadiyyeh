@@ -85,9 +85,9 @@
     }
     .carousel-caption {
         padding: 15px;
-        width: 90%; /* Make the caption box more fluid on smaller screens */
+        width: 95%; /* Make the caption box more fluid on smaller screens */
         max-width: 90%; /* Ensure it doesn’t exceed 90% of the screen width */
-        height: 8.5rem;
+        height: 9.3rem;
     }
 
     .text-center h3 {
@@ -101,7 +101,7 @@
    
       margin-top: 0px;
         font-size: 0.6rem;
-        max-width: 8rem;
+       
         
     }
 }

@@ -13,16 +13,16 @@ const Register = () => {
     const handleSubmit = (event)=>{
         const form = event.currentTarget;
         event.preventDefault();
-        const username = form.username.value;
+      
         const password = form.password.value;
         const firstname = form.firstName.value;
         const lastname = form.lastName.value;
         const email = form.email.value;
         
-        if(username && password && firstname && lastname && email && number){
+        if( password && firstname && lastname && email){
             setLoading(true);
             console.log('call api here');
-            console.log(username, password, firstname, lastname, email, number);
+            console.log(password, firstname, lastname, email);
         }
     }
     return (
@@ -47,7 +47,7 @@ const Register = () => {
                             <Form.Label>Email</Form.Label>
                             <Form.Control name="email" type="email" placeholder="Email" required />
                         </Form.Group>
-                        <Form.Group className="mb-3">
+                        {/* <Form.Group className="mb-3">
                             <Form.Label>Username</Form.Label>
                             <Form.Control name="username" type="text" placeholder="Username" minLength={3} required />
                         </Form.Group>
@@ -59,7 +59,7 @@ const Register = () => {
                                 onChange={phone=> setNumber(phone)}
                                 className="text-dark"
                             />
-                        </Form.Group>
+                        </Form.Group> */}
                         <Form.Group className="mb-3">
                             <Form.Label>Password</Form.Label>
                             <Form.Control name="password" type="password" placeholder="Password" minLength={6} required />

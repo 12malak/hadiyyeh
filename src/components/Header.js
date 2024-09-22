@@ -112,7 +112,7 @@ const Header = () => {
                         <BiCart size="1.4rem" />
                         {!isEmpty && <span style={{ position: 'relative', left: '-21px', top: '-18px' }}>{totalItems}</span>}
                     </Link>
-                    <Link to="my-account" className={`nav-link ${darkMode ? 'text-dark-primary' : 'text-light-primary'}`}>
+                    <Link to="/sign-in" className={`nav-link ${darkMode ? 'text-dark-primary' : 'text-light-primary'}`}>
                         <VscAccount size="1.2rem" />
                     </Link>
                     <Link to="my-account" className={`nav-link ${darkMode ? 'text-dark-primary' : 'text-light-primary'}`}>

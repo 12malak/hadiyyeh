@@ -1,0 +1,172 @@
+
+  /* Centering elements inside the product card */
+.product-opinion {
+    max-width: 300px; 
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+    margin: 0; /* Remove margins */
+    padding: 0; /* Remove paddings */
+}
+
+/* Additional spacing and styling for title, description, and image */
+.product-opinion h4 {
+    font-size: 1.5rem; /* Adjust the font size for the title */
+    margin: 10px 0;
+ 
+}
+
+.product-opinion .name-opinion {
+    font-size: 1rem; /* Adjust the font size for the title */
+    margin: 10px 0;
+    color: #888;
+ 
+}
+.product-opinion p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    
+    
+}
+.slide {
+    padding: 0;
+    margin: 0;
+}
+
+.container-fluid h3 {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    font-weight: 400;
+   
+   
+  }
+
+/* Centering and styling for the image */
+.product-opinion .opinion_img_home {
+    max-width: 100%; 
+    width: 100px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 25px;
+    padding: 2vh;
+    margin-bottom: 20px;
+    display: block; /* Ensure the image behaves like a block element */
+    margin-left: auto; /* Centers image horizontally */
+    margin-right: auto; /* Centers image horizontally */
+}
+  .we_help_you_home {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 4vh;
+  }
+  
+  
+  .slick-slide {
+    display: flex !important;
+  justify-content: center; /* Ensures the cards are centered in the slide */
+}
+
+  
+    .slick-prev:before {
+      content: '←';
+      color:#365486
+  }
+
+  .slick-next:before {
+      color:#365486;
+  }
+  .slick-dots {
+      position: absolute;
+      bottom: 10px; /* Adjust as needed */
+      width: 100%;
+      text-align: center;
+      color: #365486;
+      padding: 0;
+    }
+    
+    .slick-dots li {
+      display: inline-block;
+      margin: 0 5px; /* Adjust spacing */
+    }
+    
+    .slick-dots button {
+      border: 0;
+      background: #fff; /* Adjust as needed */
+      border-radius: 50%;
+      width: 10px; /* Adjust size */
+      height: 10px; /* Adjust size */
+      padding: 0;
+      margin: 0;
+    }
+
+ 
+
+    .slick-dots .slick-active button {
+      color: #365486; /* Adjust active dot color */
+    }
+    
+ 
+    /* Optionally hide the arrows for smaller screens */
+    @media (max-width: 480px) {
+      .slick-prev {
+        display: none;
+      }
+      .slick-next{
+          display: none;
+      }
+      .slider_img_home {
+      height: 200px;
+      }
+      .card_slider_exp{
+          height: 450px;
+          width: 100%;
+          
+      }
+      .title_slider_exp{
+          font-size: 20px;
+      }
+      .text_slider_exp{
+          font-size: 15px;
+      }
+    }
+    
+  
+    @media (max-width: 1200px) {
+        .container-fluid h3 {
+          font-size: 2rem;  /* Slightly smaller on large screens */
+          line-height: 2.25rem;
+        }
+      }
+      
+      @media (max-width: 992px) {
+        .container-fluid h3 {
+          font-size: 1.75rem;  /* Medium screen size */
+          line-height: 2rem;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .container-fluid h3 {
+          font-size: 1.5rem;  /* Smaller tablets and large phones */
+          line-height: 1.75rem;
+        }
+      }
+      
+      @media (max-width: 576px) {
+        .container-fluid h3 {
+          font-size: 1.25rem;  /* Small phones */
+          line-height: 1.5rem;
+        }
+      }
+      
+      @media (max-width: 360px) {
+        .container-fluid h3 {
+          font-size: 1rem;  /* Very small screens */
+          line-height: 1.25rem;
+        }
+      }

@@ -33,6 +33,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/cardes" element={<Cardes />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/product-details" element={<ProductDetails />} />
         </Routes>
       </main>
     </Router>

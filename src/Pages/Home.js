@@ -7,7 +7,9 @@ import Cardes from './Cardes';
 import Watches from './Watches'; 
 import Fragrances from './Fragrances'; 
 import Bags from './Bags'; 
-import Brands from './Brandes'; 
+import Brands from './Brandes';
+import Opinions from './Opinions';  
+import Blogs from './Blogs';  
 import { useThemeHook } from '../GlobalComponents/ThemeProvider';
 const Home = () => {
     const [theme] = useThemeHook();
@@ -65,6 +67,8 @@ const Home = () => {
 <Watches/>
 <Bags/>
 <Brands/>
+<Opinions/>
+<Blogs/>
         </div>
     );
 };
