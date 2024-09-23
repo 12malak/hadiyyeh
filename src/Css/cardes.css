@@ -17,6 +17,18 @@
  
  
 }
+
+
+.product-card:hover {
+
+  border: none;
+  transform: scale(1.05);
+}
+
+.product-card:hover h5 {
+  text-decoration: underline; /* Add underline on hover */
+  font-weight: bold; /* Bolden the text */
+}
 /* Hide scrollbars */
 .slide::-webkit-scrollbar {
   display: none; /* For Chrome, Safari, and Opera */

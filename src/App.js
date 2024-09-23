@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { useThemeHook } from './GlobalComponents/ThemeProvider';
 import Header from './components/Header';
+import AppFooter from './components/AppFooter';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 // Pages
@@ -16,13 +17,14 @@ import MyAccount from "./Pages/MyAccount";
 import Search from "./Pages/Search";
 import Cardes from "./Pages/Cardes";
 import Blogs from "./Pages/Blogs";
+import Allproducts from "./Pages/Allproducts";
 function App() {
   const [theme] = useThemeHook();
   
   return (
     <Router>
        <Header />
-       <main className={theme ? 'bg-black' : 'bg-light-2'} style={{ paddingTop: '100px', height: '100vh' }}>
+       <main className={theme ? 'bg-light-black' : 'bg-light'} style={{ paddingTop: '100px', height: '100vh' }}>
        
         <Routes>
           <Route path="/" element={<Home />} />
@@ -35,8 +37,11 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/product-details" element={<ProductDetails />} />
+          <Route path="/allproducts" element={<Allproducts />} />
         </Routes>
+        <AppFooter />
       </main>
+     
     </Router>
   );
 }

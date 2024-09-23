@@ -140,7 +140,7 @@ const Header = () => {
                            
       
                                 <Nav className="justify-content-center flex-grow-1 pe-3">
-                                    <Nav.Link href="#action1">HOME</Nav.Link>
+                                    <Nav.Link href="/">HOME</Nav.Link>
                                    
                                     <NavDropdown title="FRAGRANCES" id={`offcanvasNavbarDropdown-expand-${expand}`}>
                                         <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
@@ -174,7 +174,7 @@ const Header = () => {
                                     </NavDropdown>
                                     <Nav.Link href="#action2" >FRAGRANCE TYPES</Nav.Link>
                                     <Nav.Link href="#action2" >GIFT CARDS</Nav.Link>
-                                    <Nav.Link href="#action1" >ALL PRODUCTS</Nav.Link>
+                                    <Nav.Link href="/allproducts" >ALL PRODUCTS</Nav.Link>
                                   
                                 </Nav>
 

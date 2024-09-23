@@ -4,6 +4,7 @@ import { useThemeHook } from '../GlobalComponents/ThemeProvider';
 import { Link, useNavigate } from "react-router-dom";
 
 //icons
+import { MdOutlineAlternateEmail } from "react-icons/md";
 import { AiOutlineUser } from 'react-icons/ai';
 import { VscKey } from 'react-icons/vsc';
 
@@ -48,9 +49,9 @@ const SignIn = () => {
                     <Form onSubmit={handleSubmit}>
                         <InputGroup className="mb-4 mt-5">
                             <InputGroup.Text>
-                                <AiOutlineUser size="1.8rem" />
+                                <MdOutlineAlternateEmail size="1.8rem" />
                             </InputGroup.Text>
-                            <Form.Control name="username" type="text" placeholder="Username" minLength={3} required />
+                            <Form.Control name="Email" type="Email" placeholder="Email" minLength={3} required />
                         </InputGroup>
                         <InputGroup className="mb-4">
                             <InputGroup.Text>
@@ -78,12 +79,13 @@ const SignIn = () => {
                         }
                         </Button>
                         <Form.Group className="mt-3 text-center">
-                            <Form.Text className="text-muted fw-bold">
-                                New to E-cart?
-                            </Form.Text>
+                           
+                            <Link to='/register' className="text-muted">
+                            Forgot your password?
+                            </Link>
                             <Row className="py-2 border-bottom mb-3"/>
                             <Link to='/register' className="btn btn-info rounded-0">
-                                Create your E-cart account 
+                            Create account
                             </Link>
                         </Form.Group>
                     </Form>

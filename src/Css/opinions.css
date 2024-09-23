@@ -20,6 +20,12 @@
  
 }
 
+.product-opinion:hover {
+
+  border: none;
+  transform: scale(1.05);
+}
+
 .product-opinion .name-opinion {
     font-size: 1rem; /* Adjust the font size for the title */
     margin: 10px 0;

@@ -133,9 +133,9 @@ function Opinions() {
       
        
       <section className={theme? 'bg-light-black text-light margin_section full-screen-slider ': 'bg-light text-black margin_section full-screen-slider'} data-aos="fade-up">
-      <div className="container-fluid text-center">
+      <div className="container text-center">
          
-          <h3 className={theme? 'text-light we_help_you_home ': 'text-black we_help_you_home'}>LET CUSTOMERS SPEAK FOR US</h3>
+          <h3 className={theme? 'text-light we_help_you_home mt-5': 'text-black we_help_you_home mt-5'}>LET CUSTOMERS SPEAK FOR US</h3>
         
   
           <div className="row mt-5">

@@ -138,13 +138,13 @@ function Blogs() {
 
   return (
     <section className={theme ? 'bg-light-black text-light screen-slider' : 'bg-light text-black screen-slider'} data-aos="fade-up">
-      <div className="container-fluid text-center mt-5">
+      <div className="container text-center mt-5">
         <h3 className={theme ? 'text-light we_help_you_home m-5' : 'text-black we_help_you_home m-5'}>BLOG POSTS</h3>
         <div className="row mt-5">
           <Slider {...settings} style={{ overflow: "hidden" }} className="slide">
             {products.map((product) => (
               <div className="col-lg-4 col-md-6 col-sm-12 product-blogs mb-5" key={product.id}>
-                <div className={`card card_slider_exp pb-3 ${theme ? 'text-light' : 'text-black bg-light'}`}>
+                <div className={`card card_slider_exp pb-3  ${theme ? 'text-light' : 'text-black bg-light'}`}>
                   <Image
                     src={slider1}
                     className="card-img-top img-fluid img_slider_experience"

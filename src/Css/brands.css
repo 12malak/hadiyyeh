@@ -1,14 +1,19 @@
 /* Ensure all images have the same dimensions */
 .brand-image-container {
   margin-bottom: 10px;
-  transition: all 0.8s ease-out 0s;
+ 
 }
 
 .container-Brands {
   overflow: hidden;
-  transition: all 0.8s ease-out 0s;
+ 
 }
 
+.brand-image-container:hover {
+
+  border: none;
+  transform: scale(1.05);
+}
 .brand-image {
   width: 100%; /* Full width for responsiveness */
   max-width: 200px; /* Limit max width */

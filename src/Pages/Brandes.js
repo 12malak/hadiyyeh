@@ -14,76 +14,76 @@ const Brands = () => {
       
       <div className="row mt-4">
         <div className="col-6 col-sm-4 col-md-2 text-center brand-image-container">
-          <Image src={Brand1} alt="Brand 1" className="brand-image" />
+          <Image src={Brand1} alt="Brand 1" className="brand-image img-fluid" />
           <a href="https://brand1.com" target="_blank"className={theme ? 'm-3 link-Brands' : 'text-black m-3 link-Brands'} rel="noopener noreferrer">
             Brand 1 <IoIosArrowRoundForward size="1.5rem" />
           </a>
         </div>
         <div className="col-6 col-sm-4 col-md-2 text-center brand-image-container">
-          <Image src={Brand2} alt="Brand 2" className="brand-image" />
+          <Image src={Brand2} alt="Brand 2" className="brand-image img-fluid" />
           <a href="https://brand2.com" target="_blank"className={theme ? 'm-3 link-Brands' : 'text-black m-3 link-Brands'} rel="noopener noreferrer">
             Brand 2 <IoIosArrowRoundForward size="1.5rem" />
           </a>
         </div>
         <div className="col-6 col-sm-4 col-md-2 text-center brand-image-container">
-          <Image src={Brand1} alt="Brand 3" className="brand-image" />
+          <Image src={Brand1} alt="Brand 3" className="brand-image img-fluid" />
           <a href="https://brand3.com" target="_blank"className={theme ? 'm-3 link-Brands' : 'text-black m-3 link-Brands'} rel="noopener noreferrer">
             Brand 3 <IoIosArrowRoundForward size="1.5rem" />
           </a>
         </div>
         <div className="col-6 col-sm-4 col-md-2 text-center brand-image-container">
-          <Image src={Brand2} alt="Brand 4" className="brand-image" />
+          <Image src={Brand2} alt="Brand 4" className="brand-image img-fluid" />
           <a href="https://brand4.com" target="_blank"className={theme ? 'm-3 link-Brands' : 'text-black m-3 link-Brands'} rel="noopener noreferrer">
             Brand 4 <IoIosArrowRoundForward size="1.5rem" />
           </a>
         </div>
         <div className="col-6 col-sm-4 col-md-2 text-center brand-image-container">
-          <Image src={Brand1} alt="Brand 5" className="brand-image" />
+          <Image src={Brand1} alt="Brand 5" className="brand-image img-fluid" />
           <a href="https://brand5.com" target="_blank"className={theme ? 'm-3 link-Brands' : 'text-black m-3 link-Brands'} rel="noopener noreferrer">
             Brand 5 <IoIosArrowRoundForward size="1.5rem" />
           </a>
         </div>
         <div className="col-6 col-sm-4 col-md-2 text-center brand-image-container">
-          <Image src={Brand1} alt="Brand 6" className="brand-image" />
+          <Image src={Brand1} alt="Brand 6" className="brand-image img-fluid" />
           <a href="https://brand6.com" target="_blank"className={theme ? 'm-3 link-Brands' : 'text-black m-3 link-Brands'} rel="noopener noreferrer">
             Brand 6 <IoIosArrowRoundForward size="1.5rem" />
           </a>
         </div>
       </div>
-      <div className="row m-4">
+      <div className="row mt-4">
         <div className="col-6 col-sm-4 col-md-2 text-center brand-image-container">
-          <Image src={Brand1} alt="Brand 1" className="brand-image" />
-          <a href="https://brand1.com" target="_blank" className={theme ? 'm-3 link-Brands' : 'text-black m-3 link-Brands'} rel="noopener noreferrer">
+          <Image src={Brand1} alt="Brand 1" className="brand-image img-fluid" />
+          <a href="https://brand1.com" target="_blank"className={theme ? 'm-3 link-Brands' : 'text-black m-3 link-Brands'} rel="noopener noreferrer">
             Brand 1 <IoIosArrowRoundForward size="1.5rem" />
           </a>
         </div>
         <div className="col-6 col-sm-4 col-md-2 text-center brand-image-container">
-          <Image src={Brand2} alt="Brand 2" className="brand-image" />
-          <a href="https://brand2.com" target="_blank" className={theme ? 'm-3 link-Brands' : 'text-black m-3 link-Brands'} rel="noopener noreferrer">
+          <Image src={Brand2} alt="Brand 2" className="brand-image img-fluid" />
+          <a href="https://brand2.com" target="_blank"className={theme ? 'm-3 link-Brands' : 'text-black m-3 link-Brands'} rel="noopener noreferrer">
             Brand 2 <IoIosArrowRoundForward size="1.5rem" />
           </a>
         </div>
         <div className="col-6 col-sm-4 col-md-2 text-center brand-image-container">
-          <Image src={Brand1} alt="Brand 3" className="brand-image" />
-          <a href="https://brand3.com" target="_blank" className={theme ? 'm-3 link-Brands' : 'text-black m-3 link-Brands'} rel="noopener noreferrer">
+          <Image src={Brand1} alt="Brand 3" className="brand-image img-fluid" />
+          <a href="https://brand3.com" target="_blank"className={theme ? 'm-3 link-Brands' : 'text-black m-3 link-Brands'} rel="noopener noreferrer">
             Brand 3 <IoIosArrowRoundForward size="1.5rem" />
           </a>
         </div>
         <div className="col-6 col-sm-4 col-md-2 text-center brand-image-container">
-          <Image src={Brand2} alt="Brand 4" className="brand-image" />
-          <a href="https://brand4.com" target="_blank" className={theme ? 'm-3 link-Brands' : 'text-black m-3 link-Brands'} rel="noopener noreferrer">
+          <Image src={Brand2} alt="Brand 4" className="brand-image img-fluid" />
+          <a href="https://brand4.com" target="_blank"className={theme ? 'm-3 link-Brands' : 'text-black m-3 link-Brands'} rel="noopener noreferrer">
             Brand 4 <IoIosArrowRoundForward size="1.5rem" />
           </a>
         </div>
         <div className="col-6 col-sm-4 col-md-2 text-center brand-image-container">
-          <Image src={Brand1} alt="Brand 5" className="brand-image" />
-          <a href="https://brand5.com" target="_blank" className={theme ? 'm-3 link-Brands' : 'text-black m-3 link-Brands'} rel="noopener noreferrer">
+          <Image src={Brand1} alt="Brand 5" className="brand-image img-fluid" />
+          <a href="https://brand5.com" target="_blank"className={theme ? 'm-3 link-Brands' : 'text-black m-3 link-Brands'} rel="noopener noreferrer">
             Brand 5 <IoIosArrowRoundForward size="1.5rem" />
           </a>
         </div>
         <div className="col-6 col-sm-4 col-md-2 text-center brand-image-container">
-          <Image src={Brand1} alt="Brand 6" className="brand-image" />
-          <a href="https://brand6.com" target="_blank" className={theme ? 'm-3 link-Brands' : 'text-black m-3 link-Brands'} rel="noopener noreferrer">
+          <Image src={Brand1} alt="Brand 6" className="brand-image img-fluid" />
+          <a href="https://brand6.com" target="_blank"className={theme ? 'm-3 link-Brands' : 'text-black m-3 link-Brands'} rel="noopener noreferrer">
             Brand 6 <IoIosArrowRoundForward size="1.5rem" />
           </a>
         </div>

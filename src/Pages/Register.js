@@ -80,7 +80,7 @@ const Register = () => {
                                     aria-hidden="true"
                                 />
                                 &nbsp;Loading...
-                            </> : 'Continue'
+                            </> : 'Create'
                         }
                         </Button>
                     </Form>

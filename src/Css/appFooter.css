@@ -1,0 +1,16 @@
+.link-Footer {
+    display: block;
+    color: #888;
+    text-decoration: none;
+    
+  }
+  
+  a:hover {
+    text-decoration: underline;
+    color: #c5bdbd;
+  }
+
+  .footer {
+    border-top: 1px solid #d4d2d2; /* Adjust the thickness and color as needed */
+    padding-top: 20px; /* Optional: Add some padding to separate content from the border */
+}
