@@ -6,18 +6,18 @@
     margin-bottom: .5rem;
 }
 .user-menu.bg-dark .nav-pills .nav-link:not(.active){
-    border: 1px solid #FCBC73;
-    color: #FCBC73;
+    border: 1px solid #333;
+    color: rgb(168, 167, 167);
 }
 .user-menu.bg-light .nav-pills .nav-link:not(.active){
-    border: 1px solid #191654;
-    color: #191654;
+    border: 1px solid black;
+    color: black;
 }
 .user-menu.bg-dark .nav-pills .nav-link.active{
-    background-color: #FCBC73;
+    background-color: rgb(168, 167, 167);
     color: black;
 }
 .user-menu.bg-light .nav-pills .nav-link.active{
-    background-color: #191654;
-    color: white;
+    background-color: rgb(168, 167, 167);
+    color: black;
 }

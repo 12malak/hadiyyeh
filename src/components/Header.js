@@ -15,11 +15,17 @@ import { FaFacebook } from "react-icons/fa";
 import { RiTiktokFill } from "react-icons/ri";
 import { MdGTranslate } from "react-icons/md";
 import Logo from '../images/Logo.avif';
-const Header = () => {
+import RightCart from './RightCart';
+
+
+const Header = ({ cartItems }) => {
     const { theme, setThemeMode } = useContext(ThemeContext); 
     const [darkMode, setDarkMode] = useState(theme);
     const [showBanner, setShowBanner] = useState(true); // State for the banner visibility
-
+    const [isCanvasOpen, setCanvasOpen] = useState(false);
+    const toggleCanvas = () => {
+        setCanvasOpen(!isCanvasOpen);
+    };
     useEffect(() => {
         setThemeMode(darkMode);
 
@@ -81,7 +87,7 @@ const Header = () => {
             <Container className="d-flex align-items-center justify-content-between">
                 {/* Left Icons: Sign in */}
                 <Nav className="d-flex align-items-center">
-                <Link to="search" className={`nav-link ${darkMode ? 'text-dark-primary' : 'text-light-primary'}`}>
+                <Link to="cart" className={`nav-link ${darkMode ? 'text-dark-primary' : 'text-light-primary'}`}>
                       
                         <IoIosSearch 
                         size="1.5rem"/>
@@ -108,10 +114,14 @@ const Header = () => {
                     <Nav.Link className={darkMode ? 'text-dark-primary' : 'text-light-primary'} onClick={() => setDarkMode(!darkMode)}>
                         {darkMode ? <BiSun size="1.2rem" /> : <BiMoon size="1.2rem" />}
                     </Nav.Link>
-                    <Link to="/cart" className={`${darkMode ? 'text-dark-primary' : 'text-light-primary'} d-flex align-items-center`}>
+                    <div
+                     style={{ cursor: 'pointer' }}
+                      to=""
+                      onClick={toggleCanvas}
+                     className={`${darkMode ? 'text-dark-primary' : 'text-light-primary'} d-flex align-items-center`}>
                         <BiCart size="1.4rem" />
                         {!isEmpty && <span style={{ position: 'relative', left: '-21px', top: '-18px' }}>{totalItems}</span>}
-                    </Link>
+                    </div>
                     <Link to="/sign-in" className={`nav-link ${darkMode ? 'text-dark-primary' : 'text-light-primary'}`}>
                         <VscAccount size="1.2rem" />
                     </Link>
@@ -191,7 +201,7 @@ const Header = () => {
             </a>
             
         </div>
-        <Nav className=" social-icons-toggle">
+        {/* <Nav className=" social-icons-toggle">
                     <Nav.Link className={darkMode ? 'text-dark-primary' : 'text-light-primary'} onClick={() => setDarkMode(!darkMode)}>
                         {darkMode ? <BiSun size="1.2rem" /> : <BiMoon size="1.2rem" />}
                     </Nav.Link>
@@ -205,12 +215,19 @@ const Header = () => {
                     <Link to="my-account" className={`nav-link ${darkMode ? 'text-dark-primary' : 'text-light-primary'}`}>
                         <MdGTranslate size="1.2rem" />
                     </Link>
-                </Nav>
+                </Nav> */}
                             </Offcanvas.Body>
                         </Navbar.Offcanvas>
                     </Container>
                 </Navbar>
             ))}
+
+              {/* Include the RightCart component */}
+              <RightCart 
+                cartItems={cartItems} 
+                isCanvasOpen={isCanvasOpen} 
+                toggleCanvas={toggleCanvas} 
+            />
 
             {/* Spacer div to add space below the fixed navbar */}
             <div style={{ height: '80px' }}></div> {/* Adjust height as needed */}

@@ -4,7 +4,7 @@ import { Image } from 'react-bootstrap';
 import { useThemeHook } from '../GlobalComponents/ThemeProvider';
 import slider1 from '../images/girl2-removebg-preview.png';
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
-
+import { Container, Row, Col , Form} from 'react-bootstrap';
 // Sample Product Data
 const products = [
     {
@@ -179,6 +179,56 @@ function Allproducts() {
     return (
         <section className={theme ? 'bg-light-black text-light margin_section full-screen-slider' : 'bg-light text-black margin_section full-screen-slider'} data-aos="fade-up">
             <div className="container text-center container-all">
+            {/* <Row className="justify-content-center">
+  <Col lg={6} className="mt-4 mb-lg-0">
+    <ul className="list-unstyled d-flex justify-content-start mt-3"> 
+      <li className="ms-3">
+        <a href="#!" className={theme ? ' linkbottom-Footer' : 'text-black linkbottom-Footer'}>
+        © 2024, Hadiyyeh 
+        </a>
+      </li>
+      <li className="ms-3">
+        <a href="#!" className={theme ? ' linkbottom-Footer' : 'text-black linkbottom-Footer'}>
+        Refund policy
+
+        </a>
+      </li>
+      <li className="ms-3">
+        <a href="#!" className={theme ? 'linkbottom-Footer' : 'text-black linkbottom-Footer'}>
+        Privacy policy
+
+        </a>
+      </li>
+      <li className="ms-3">
+        <a href="#!" className={theme ? ' linkbottom-Footer' : 'text-black linkbottom-Footer'}>
+        Terms of service
+
+        </a>
+      </li>
+      <li className="ms-3">
+        <a href="#!" className={theme ? 'linkbottom-Footer' : 'text-black linkbottom-Footer'}>
+        Contact information
+        </a>
+      </li>
+    </ul>
+  </Col>
+  <Col lg={6} className="mt-4 mb-lg-0">
+    <ul className="list-unstyled d-flex justify-content-center mt-3">
+      <li className="ms-3">
+        <a href="#!" className={theme ? ' linkbottom-Footer' : 'text-black linkbottom-Footer'}>
+        © 2024, Hadiyyeh 
+        </a>
+      </li>
+      <li className="ms-3">
+        <a href="#!" className={theme ? ' linkbottom-Footer' : 'text-black linkbottom-Footer'}>
+        Refund policy
+
+        </a>
+      </li>
+     
+    </ul>
+  </Col>
+</Row> */}
                 <div className="row mt-5 justify-content-center">
                     {currentProducts.map((product) => (
                         <div className="col-lg-3 col-md-4 col-sm-12 product-allcard mb-5" key={product.id}>
