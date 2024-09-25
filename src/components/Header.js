@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import { Container, Navbar, Nav,Image } from 'react-bootstrap';
 import { ThemeContext } from '../GlobalComponents/ThemeProvider';
 import { BiSun, BiMoon, BiCart } from 'react-icons/bi';
+import { GrCart } from "react-icons/gr";
 import { VscAccount } from 'react-icons/vsc';
 import { Link } from "react-router-dom";
 
@@ -23,6 +24,7 @@ const Header = ({ cartItems }) => {
     const [darkMode, setDarkMode] = useState(theme);
     const [showBanner, setShowBanner] = useState(true); // State for the banner visibility
     const [isCanvasOpen, setCanvasOpen] = useState(false);
+    
     const toggleCanvas = () => {
         setCanvasOpen(!isCanvasOpen);
     };
@@ -90,8 +92,14 @@ const Header = ({ cartItems }) => {
                 <Link to="cart" className={`nav-link ${darkMode ? 'text-dark-primary' : 'text-light-primary'}`}>
                       
                         <IoIosSearch 
-                        size="1.5rem"/>
+                        size="1.3rem"/>
                     </Link>
+                    <Link to="sign-in" className={`nav-link ${darkMode ? 'text-dark-primary' : 'text-light-primary'} d-none d-md-block`}>
+                      
+                      <VscAccount 
+                      size="1.2rem"/>
+                  </Link>
+                
                 </Nav>
 
                 {/* Centered Logo */}
@@ -109,43 +117,63 @@ const Header = ({ cartItems }) => {
                     </Navbar.Brand>
                 </Link>
 
-                {/* Right Icons: Dark mode toggle, Cart, Account */}
-                <Nav className="d-flex align-items-center show-on-large ">
-                    <Nav.Link className={darkMode ? 'text-dark-primary' : 'text-light-primary'} onClick={() => setDarkMode(!darkMode)}>
-                        {darkMode ? <BiSun size="1.2rem" /> : <BiMoon size="1.2rem" />}
-                    </Nav.Link>
-                    <div
-                     style={{ cursor: 'pointer' }}
-                      to=""
-                      onClick={toggleCanvas}
-                     className={`${darkMode ? 'text-dark-primary' : 'text-light-primary'} d-flex align-items-center`}>
-                        <BiCart size="1.4rem" />
-                        {!isEmpty && <span style={{ position: 'relative', left: '-21px', top: '-18px' }}>{totalItems}</span>}
-                    </div>
-                    <Link to="/sign-in" className={`nav-link ${darkMode ? 'text-dark-primary' : 'text-light-primary'}`}>
-                        <VscAccount size="1.2rem" />
-                    </Link>
-                    <Link to="my-account" className={`nav-link ${darkMode ? 'text-dark-primary' : 'text-light-primary'}`}>
-                        <MdGTranslate size="1.2rem" />
-                    </Link>
-                </Nav>
+                {/* Right Icons: Dark mode toggle,Translate and Cart*/}
+               {/* Right Icons: Dark mode toggle, Cart, Account */}
+<Nav className="d-flex align-items-center">
+    {/* Dark Mode Toggle */}
+    <Nav.Link 
+      className={`${
+        darkMode ? 'text-dark-primary' : 'text-light-primary'
+      } d-none d-md-block`}  // Hide on small screens, show on medium and up
+      onClick={() => setDarkMode(!darkMode)}
+    >
+        {darkMode ? <BiSun size="1.2rem" /> : <BiMoon size="1.2rem" />}
+    </Nav.Link>
+
+    {/* Translate Icon */}
+    <Link
+      to="my-account"
+      className={`nav-link ${
+        darkMode ? 'text-dark-primary' : 'text-light-primary'
+      } d-none d-md-block`}  // Hide on small screens, show on medium and up
+    >
+        <MdGTranslate size="1.2rem" />
+    </Link>
+
+    {/* Cart Icon */}
+    <div
+      style={{ cursor: 'pointer' }}
+      onClick={toggleCanvas}
+      className={`${
+        darkMode ? 'text-dark-primary' : 'text-light-primary'
+      } `}  // Hide on small screens, show on medium and up
+    >
+        <GrCart size="1.2rem" />
+        {!isEmpty && (
+          <span style={{ position: 'relative', left: '-21px', top: '-18px' }}>
+            {totalItems}
+          </span>
+        )}
+    </div>
+</Nav>
+
             </Container>
         </Navbar>
             {/* Bottom section with navigation links */}
             {[false, 'sm', 'md','lg', 'xl'].map((expand) => (
-                <Navbar key={expand} expand={expand} variant={darkMode ? 'dark' : 'light'} className={`navbar2-fixed ${darkMode ? 'bg-light-black border-bottom' : 'bg-light border-bottom'}`} >
-                    <Container fluid>
+                <Navbar key={expand} expand={expand} variant={darkMode ? 'dark' : 'light'}  >
+                    <Container fluid className={`navbar2-fixed ${theme ? 'bg-light-black border-bottom' : 'bg-light border-bottom'}`}>
                         <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
                         <Navbar.Offcanvas
                             id={`offcanvasNavbar-expand-${expand}`}
                             aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
                             placement="end"
-                        >
-                            <Offcanvas.Header closeButton>
-                                <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                                Hadiyyeh
-                                </Offcanvas.Title>
-                            </Offcanvas.Header>
+                            className={`${darkMode ? 'bg-dark text-light' : 'bg-light text-dark'}`} 
+                        > <Offcanvas.Header closeButton className={`${darkMode ? 'text-dark-primary' : 'text-light-primary'}`}>
+                        <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
+                            Hadiyyeh
+                        </Offcanvas.Title>
+                    </Offcanvas.Header>
                             <Offcanvas.Body>
                            
       
@@ -188,34 +216,36 @@ const Header = ({ cartItems }) => {
                                   
                                 </Nav>
 
-                                  {/* Social media icons (hidden on large screens, visible on small screens) */}
-        <div className="social-icons-toggle">
-            <a href="https://www.facebook.com" target="_blank" rel="noreferrer" className="text-dark">
+                                {/* Social media icons (hidden on large screens, visible on small screens) */}
+  {/* Social media icons (for dark mode) */}
+  <div className="social-icons-toggle">
+            <a href="https://www.facebook.com" target="_blank" rel="noreferrer" className={`${darkMode ? 'text-dark-primary' : 'text-light-primary'} mx-2`}>
                 <FaFacebook size="1.3rem" />
             </a>
-            <a href="https://www.instagram.com" target="_blank" rel="noreferrer" className="text-dark">
+            <a href="https://www.instagram.com" target="_blank" rel="noreferrer" className={`${darkMode ? 'text-dark-primary' : 'text-light-primary'} mx-2`}>
                 <CiInstagram size="1.3rem" />
             </a>
-            <a href="https://www.tiktok.com" target="_blank" rel="noreferrer" className="text-dark">
+            <a href="https://www.tiktok.com" target="_blank" rel="noreferrer" className={`${darkMode ? 'text-dark-primary' : 'text-light-primary'} mx-2`}>
                 <RiTiktokFill size="1.3rem" />
             </a>
-            
         </div>
-        {/* <Nav className=" social-icons-toggle">
-                    <Nav.Link className={darkMode ? 'text-dark-primary' : 'text-light-primary'} onClick={() => setDarkMode(!darkMode)}>
-                        {darkMode ? <BiSun size="1.2rem" /> : <BiMoon size="1.2rem" />}
-                    </Nav.Link>
-                    <Link to="/cart" className={`${darkMode ? 'text-dark-primary' : 'text-light-primary'} d-flex align-items-center`}>
-                        <BiCart size="1.4rem" />
-                        {!isEmpty && <span style={{ position: 'relative', left: '-21px', top: '-18px' }}>{totalItems}</span>}
-                    </Link>
-                    <Link to="my-account" className={`nav-link ${darkMode ? 'text-dark-primary' : 'text-light-primary'}`}>
-                        <VscAccount size="1.2rem" />
-                    </Link>
-                    <Link to="my-account" className={`nav-link ${darkMode ? 'text-dark-primary' : 'text-light-primary'}`}>
-                        <MdGTranslate size="1.2rem" />
-                    </Link>
-                </Nav> */}
+{/* Icons toggle (dark mode, account, translate) centered like social-icons-toggle */}
+<div className="social-icons-toggle d-flex d-md-none justify-content-center">
+    <Nav.Link className={darkMode ? 'text-dark-primary' : 'text-light-primary'} onClick={() => setDarkMode(!darkMode)}>
+        {darkMode ? <BiSun size="1.2rem" /> : <BiMoon size="1.2rem" />}
+    </Nav.Link>
+   
+    <Link to="my-account" className={`nav-link ${darkMode ? 'text-dark-primary' : 'text-light-primary'} mx-2`}>
+        <VscAccount size="1.2rem" />
+    </Link>
+   
+    <Link to="my-account" className={`nav-link ${darkMode ? 'text-dark-primary' : 'text-light-primary'} mx-2`}>
+        <MdGTranslate size="1.2rem" />
+    </Link>
+</div>
+
+
+
                             </Offcanvas.Body>
                         </Navbar.Offcanvas>
                     </Container>
@@ -229,8 +259,7 @@ const Header = ({ cartItems }) => {
                 toggleCanvas={toggleCanvas} 
             />
 
-            {/* Spacer div to add space below the fixed navbar */}
-            <div style={{ height: '80px' }}></div> {/* Adjust height as needed */}
+         
         </>
     );
 };

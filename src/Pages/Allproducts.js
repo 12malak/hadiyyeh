@@ -5,6 +5,8 @@ import { useThemeHook } from '../GlobalComponents/ThemeProvider';
 import slider1 from '../images/girl2-removebg-preview.png';
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import { Container, Row, Col , Form} from 'react-bootstrap';
+import { IoFilterCircleOutline } from "react-icons/io5";
+import { Link } from "react-router-dom";
 // Sample Product Data
 const products = [
     {
@@ -154,7 +156,11 @@ const ITEMS_PER_PAGE = 16;
 function Allproducts() {
     const [theme] = useThemeHook();
     const [currentPage, setCurrentPage] = useState(1);
+    const [isOpen, setIsOpen] = useState(false);
 
+    const toggleOffcanvas = () => {
+        setIsOpen(!isOpen);
+    };
     // Calculate the total number of pages
     const totalPages = Math.ceil(products.length / ITEMS_PER_PAGE);
 
@@ -179,56 +185,118 @@ function Allproducts() {
     return (
         <section className={theme ? 'bg-light-black text-light margin_section full-screen-slider' : 'bg-light text-black margin_section full-screen-slider'} data-aos="fade-up">
             <div className="container text-center container-all">
-            {/* <Row className="justify-content-center">
-  <Col lg={6} className="mt-4 mb-lg-0">
-    <ul className="list-unstyled d-flex justify-content-start mt-3"> 
-      <li className="ms-3">
-        <a href="#!" className={theme ? ' linkbottom-Footer' : 'text-black linkbottom-Footer'}>
-        © 2024, Hadiyyeh 
-        </a>
-      </li>
-      <li className="ms-3">
-        <a href="#!" className={theme ? ' linkbottom-Footer' : 'text-black linkbottom-Footer'}>
-        Refund policy
+            <Row className="justify-content-start content-filter">
+                <Col lg={8} className="mt-1 mb-lg-0">
+                    <div className="d-flex justify-content-between">
+                        <ul className={`list-unstyled d-none d-md-flex justify-content-start mt-3`}>
+                            <li className={`me-3 title-filter mt-1 ${theme ? 'text-light' : 'text-black'}`}>
+                                Filter:
+                            </li>
+                            {/* Filter Selects for Desktop */}
+                            {["Availability", "Price", "Brand", "Size", "Product type"].map(option => (
+                                <li key={option} className="me-3">
+                                    <select className={`form-select custom-select ${theme ? 'bg-light-black text-light' : 'bg-light text-black'}`}>
+                                        <option value="">{option}</option>
+                                        <option value="electronics">Electronics</option>
+                                        <option value="fashion">Fashion</option>
+                                        <option value="furniture">Furniture</option>
+                                    </select>
+                                </li>
+                            ))}
+                        </ul>
+                     
+                    {/* Toggle Button for Offcanvas */}
+                    <Link  
+                    className={`nav-link link-filter d-md-none mt-3 ${theme ? 'text-dark-primary' : 'text-light-primary'}`}
+                   
+                    onClick={toggleOffcanvas}>
+                         <IoFilterCircleOutline size="1.4rem"/>  Filter & Sort
+                    </Link>
+                    <h6 className={` me-5 mt-3 d-md-none  ${theme ? 'text-dark-primary' : 'text-light-primary'}`}
+                    
+                    >
+                        644 products
+                    </h6>
+                
+                    </div>
+                </Col>
+                <Col lg={4} className="mt-1 mb-lg-0">
+                    <ul className="list-unstyled d-none d-md-flex justify-content-start mt-3">
+                        <li className={`me-3 title-filter mt-1 ${theme ? 'text-light' : 'text-black'}`}>
+                            Sort by:
+                        </li>
+                        <li className="me-3">
+                            <select className={`form-select custom-select ${theme ? 'bg-light-black text-light' : 'bg-light text-black'}`}>
+                                <option value="">Best selling</option>
+                                <option value="electronics">Electronics</option>
+                                <option value="fashion">Fashion</option>
+                                <option value="furniture">Furniture</option>
+                                {/* Add more categories as needed */}
+                            </select>
+                        </li>
+                        <li className={`me-3 title-filter mt-1 ${theme ? 'text-light' : 'text-black'}`}>
+                        644 products
+                        </li>
+                    </ul>
+                </Col>
+                  {/* Product Count Visible on Small and Medium Screens */}
+                 
+                   
+            </Row>
 
-        </a>
-      </li>
-      <li className="ms-3">
-        <a href="#!" className={theme ? 'linkbottom-Footer' : 'text-black linkbottom-Footer'}>
-        Privacy policy
+            {/* Offcanvas Component */}
+            <div 
+    className={`offcanvas offcanvas-end ${isOpen ? 'show' : ''} ${theme ? 'bg-light-black' : 'bg-light'}`} 
+    tabIndex="-1" 
+    id="offcanvasRight" 
+    aria-labelledby="offcanvasRightLabel" 
+    style={{ visibility: isOpen ? 'visible' : 'hidden' }}
+>
+                <div className="offcanvas-header">
+                    <h5 className={`offcanvas-title ${theme ? 'text-light' : 'text-black'}`} id="offcanvasRightLabel">Filters and Sort</h5>
+                    <button type="button" className="btn-close" onClick={toggleOffcanvas} aria-label="Close"></button>
+                </div>
+                <div className="offcanvas-body">
+                    {/* Filter Options in Offcanvas */}
+                    <ul className="list-unstyled">
+                        {/* <h4 className={` mt-1 ${theme ? 'text-light' : 'text-black'}`}>
+                            Filter:
+                        </h4> */}
+                        {["Availability", "Price", "Brand", "Size", "Product type"].map(option => (
+                            <li key={option} className=" mt-5">
+                                <select className={`form-select custom-select ${theme ? 'bg-light-black text-light' : 'bg-light text-black'}`}>
+                                    <option value="">{option}</option>
+                                    <option value="electronics">Electronics</option>
+                                    <option value="fashion">Fashion</option>
+                                    <option value="furniture">Furniture</option>
+                                </select>
+                            </li>
+                        ))}
+                    </ul>
+                    {/* Sort Options in Offcanvas */}
+                    <ul className="list-unstyled mt-3">
+                        {/* <li className={`title-filter mt-1 ${theme ? 'text-light' : 'text-black'}`}>
+                            Sort by:
+                        </li> */}
+                        <li className="me-5">
+                            <select className={`form-select custom-select ${theme ? 'bg-light-black text-light' : 'bg-light text-black'}`}>
+                                <option value="">Best selling</option>
+                                <option value="electronics">Electronics</option>
+                                <option value="fashion">Fashion</option>
+                                <option value="furniture">Furniture</option>
+                                {/* Add more categories as needed */}
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+            </div>
 
-        </a>
-      </li>
-      <li className="ms-3">
-        <a href="#!" className={theme ? ' linkbottom-Footer' : 'text-black linkbottom-Footer'}>
-        Terms of service
+            {/* Backdrop for Offcanvas */}
+            {isOpen && <div className="offcanvas-backdrop fade show" onClick={toggleOffcanvas}></div>}
 
-        </a>
-      </li>
-      <li className="ms-3">
-        <a href="#!" className={theme ? 'linkbottom-Footer' : 'text-black linkbottom-Footer'}>
-        Contact information
-        </a>
-      </li>
-    </ul>
-  </Col>
-  <Col lg={6} className="mt-4 mb-lg-0">
-    <ul className="list-unstyled d-flex justify-content-center mt-3">
-      <li className="ms-3">
-        <a href="#!" className={theme ? ' linkbottom-Footer' : 'text-black linkbottom-Footer'}>
-        © 2024, Hadiyyeh 
-        </a>
-      </li>
-      <li className="ms-3">
-        <a href="#!" className={theme ? ' linkbottom-Footer' : 'text-black linkbottom-Footer'}>
-        Refund policy
 
-        </a>
-      </li>
-     
-    </ul>
-  </Col>
-</Row> */}
+
+            {/* Product Grid */}
                 <div className="row mt-5 justify-content-center">
                     {currentProducts.map((product) => (
                         <div className="col-lg-3 col-md-4 col-sm-12 product-allcard mb-5" key={product.id}>

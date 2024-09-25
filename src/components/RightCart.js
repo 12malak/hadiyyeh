@@ -43,6 +43,7 @@ const RightCart = ({ cartItems, isCanvasOpen, toggleCanvas }) => {
             aria-labelledby="offcanvasRightLabel"
             style={isCanvasOpen ? { display: 'block' } : {}}
         >
+            
             <div className="offcanvas-header">
             <h5 className={`offcanvas-title ${theme ? 'text-light' : 'text-black'}`} id="offcanvasRightLabel">Your Cart</h5>
 

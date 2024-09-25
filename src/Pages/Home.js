@@ -25,7 +25,7 @@ const Home = () => {
                <Carousel.Caption  className={theme? 'bg-slider-black text-light': 'bg-light text-black'}>
                     <Container >
                         <Row className="justify-content-center">
-                            <Col md={8} className="text-center">
+                            <Col md={8} className="text-center titel-home">
                                 <h3 className={theme? 'text-light my-3': 'text-black my-3'}>EXPLORE OUR SCENTS</h3>
                                 <p  className={theme? 'text-light': 'text-black '}>
                                     YOUR SCENT CAN EXPRESS YOUR PERSONALITY, PRESENCE, AND YOUR STYLE.

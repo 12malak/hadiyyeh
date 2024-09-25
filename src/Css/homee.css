@@ -35,7 +35,7 @@
     
 }
 
-.text-center h3 {
+.titel-home h3 {
     color: black;
     font-size: 1.3rem;
     margin: 20px 0 5px; /* Space above and below the heading */
@@ -90,7 +90,7 @@
         height: 9.3rem;
     }
 
-    .text-center h3 {
+    .titel-home h3 {
         font-size: 0.6rem; /* Adjust font size for smaller screens */
     }
 

@@ -96,4 +96,41 @@
   } */
   
  
-  
+  .custom-select {
+   max-width: 120px; /* Set the desired width */
+    height: 30px; /* Set the desired height */
+  width: 105px;
+    border:none;
+    padding: 0px; /* Padding inside the select */
+ 
+    transition: border-color 0.3s; /* Smooth transition for border */
+    font-size: 12px;
+}
+
+.custom-select:focus {
+    border-color: #b1b1b4; /* Change border color on focus */
+    outline: none; /* Remove outline */
+}
+.title-filter {
+ 
+  font-size: 13px; /* Increase the font size */
+  color: #888;
+ 
+}
+
+/* Optional: Dark mode styles if using the theme */
+.title-filter.text-light {
+  color: #fff; /* Change to white for light text */
+}
+.content-filter{
+
+  padding-left: 92px;
+}
+
+
+/* Change background color on hover */
+.link-filter:hover {
+  background-color: rgba(0, 123, 255, 0.1); /* Light blue background on hover */
+  text-decoration:underline;
+}
+

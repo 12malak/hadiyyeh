@@ -9,8 +9,6 @@ import {Image } from 'react-bootstrap'; // Import necessary components
 import { useThemeHook } from '../GlobalComponents/ThemeProvider';
 import slider1 from '../images/WATCHES-removebg-preview.png';
 
-import slider2 from '../images/slider2.webp';
-import { BsStackOverflow } from "react-icons/bs";
 const settings = {
   speed: 300,
   slidesToShow: 6,

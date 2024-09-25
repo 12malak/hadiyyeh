@@ -43,13 +43,13 @@
     margin: 0;
 }
 
-.container-fluid h3 {
+/* .container-fluid h3 {
     font-size: 2.25rem;
     line-height: 2.5rem;
     font-weight: 400;
    
    
-  }
+  } */
 
 /* Centering and styling for the image */
 .product-opinion .opinion_img_home {
@@ -64,12 +64,7 @@
     margin-left: auto; /* Centers image horizontally */
     margin-right: auto; /* Centers image horizontally */
 }
-  .we_help_you_home {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 4vh;
-  }
+ 
   
   
   .slick-slide {
@@ -142,37 +137,19 @@
     }
     
   
-    @media (max-width: 1200px) {
-        .container-fluid h3 {
-          font-size: 2rem;  /* Slightly smaller on large screens */
-          line-height: 2.25rem;
-        }
-      }
+
       
       @media (max-width: 992px) {
-        .container-fluid h3 {
-          font-size: 1.75rem;  /* Medium screen size */
-          line-height: 2rem;
-        }
-      }
-      
-      @media (max-width: 768px) {
-        .container-fluid h3 {
-          font-size: 1.5rem;  /* Smaller tablets and large phones */
-          line-height: 1.75rem;
-        }
-      }
-      
-      @media (max-width: 576px) {
-        .container-fluid h3 {
-          font-size: 1.25rem;  /* Small phones */
-          line-height: 1.5rem;
-        }
-      }
-      
-      @media (max-width: 360px) {
-        .container-fluid h3 {
+        .container h3 {
           font-size: 1rem;  /* Very small screens */
-          line-height: 1.25rem;
+          line-height: 1.75rem;
+          font-weight: 400;
         }
+        .product-opinion p {
+          font-size: 0.70rem;
+        margin: 10px;
+          
       }
+      }
+      
+      

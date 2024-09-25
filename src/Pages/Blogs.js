@@ -138,7 +138,7 @@ function Blogs() {
 
   return (
     <section className={theme ? 'bg-light-black text-light screen-slider' : 'bg-light text-black screen-slider'} data-aos="fade-up">
-      <div className="container text-center mt-5">
+      <div className="container text-center mt-5 title-page">
         <h3 className={theme ? 'text-light we_help_you_home m-5' : 'text-black we_help_you_home m-5'}>BLOG POSTS</h3>
         <div className="row mt-5">
           <Slider {...settings} style={{ overflow: "hidden" }} className="slide">

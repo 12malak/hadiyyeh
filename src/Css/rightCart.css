@@ -12,7 +12,7 @@
 
 }
 .scrollable-cart-items {
-    max-height: 800px; /* Set a max height for the cart items container */
+    max-height:800px; /* Set a max height for the cart items container */
     overflow-y: auto; /* Allow vertical scrolling */
     overflow-x: hidden; /* Prevent horizontal scrolling */
     padding: 5px; /* Add some padding for better visibility */
@@ -104,6 +104,7 @@ span {
     padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
+   
 }
 
 .border-but:hover{
@@ -120,4 +121,24 @@ span {
 .Gift .form-control:focus {
     background-color: #ccc;
     color: #333;
+}
+/* For medium-sized screens (e.g., tablets) */
+@media (max-width: 1024px) {
+    .scrollable-cart-items {
+        max-height:700px; /* Reduce max height for medium screens */
+    }
+}
+
+/* For smaller screens (e.g., mobile phones) */
+@media (max-width: 768px) {
+    .scrollable-cart-items {
+        max-height: 600px; /* Further reduce max height for small screens */
+    }
+}
+
+/* For extra small screens */
+@media (max-width: 480px) {
+    .scrollable-cart-items {
+        max-height: 700px; /* Set a smaller height for very small screens */
+    }
 }

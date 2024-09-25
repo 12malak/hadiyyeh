@@ -30,7 +30,12 @@
  
   margin: 3vh 1vh 5vh 3vh;
 }
-
+.we_help_you_home {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 400;
+  margin-bottom: 4vh;
+}
 .card_slider_exp:hover {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   border: none;
@@ -73,5 +78,28 @@
   }
   .text_slider_exp {
     font-size: 15px;
+  }
+}
+@media (max-width: 768px) {
+  .we_help_you_home {
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+    font-weight: 400;
+  }
+}
+
+@media (max-width: 576px) {
+  .we_help_you_home {
+    font-size: 1.5rem;  /* Small phones */
+    line-height: 1.75rem;
+    font-weight: 400;
+  }
+}
+
+@media (max-width: 360px) {
+  .we_help_you_home {
+    font-size: 1rem;  /* Very small screens */
+    line-height: 1.75rem;
+    font-weight: 400;
   }
 }
