@@ -19,25 +19,24 @@ import Search from "./Pages/Search";
 import Cardes from "./Pages/Cardes";
 import Blogs from "./Pages/Blogs";
 import Allproducts from "./Pages/Allproducts";
+import CheakOut from "./components/CheakOut";
+import Gift from "./Pages/Gift";
 function App() {
   const [theme] = useThemeHook();
   const [cartItems, setCartItems] = useState([
     { name: 'US POLO ASSN. 1000-01 WATCH FOR MEN', price: 10 },
     { name: 'LATTAFA ANA ABIYEDH EDP UNISEX', price: 20 },
     { name: 'US POLO ASSN. 1000-01 WATCH FOR MEN', price: 10 },
-    { name: 'LATTAFA ANA ABIYEDH EDP UNISEX', price: 20 },
-    { name: 'US POLO ASSN. 1000-01 WATCH FOR MEN', price: 10 },
-    { name: 'LATTAFA ANA ABIYEDH EDP UNISEX', price: 20 },
-    { name: 'US POLO ASSN. 1000-01 WATCH FOR MEN', price: 10 },
-    { name: 'LATTAFA ANA ABIYEDH EDP UNISEX', price: 20 },
+   
 ]);
   return (
     <Router>
        <Header cartItems={cartItems} />
        <RightCart cartItems={cartItems} setCartItems={setCartItems} theme={theme} />
-       <main className={theme ? 'bg-light-black' : 'bg-light'} style={{ paddingTop: '100px', height: '100vh' }}>
+       <main className={theme ? 'bg-light-black' : 'bg-light'} style={{ paddingTop: '100px' }}>
        
         <Routes>
+        <Route path="/cheakOut" element={<CheakOut products={cartItems} />} />
           <Route path="/" element={<Home />} />
           <Route path="/my-account" element={<MyAccount />} />
          
@@ -49,6 +48,7 @@ function App() {
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/product-details" element={<ProductDetails />} />
           <Route path="/allproducts" element={<Allproducts />} />
+          <Route path="/gift" element={<Gift />} />
         </Routes>
         <AppFooter />
       </main>

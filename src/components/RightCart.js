@@ -7,13 +7,22 @@ import { IoMdAdd } from "react-icons/io";
 import { FiMinus } from "react-icons/fi";
 import { FaRegTrashCan } from "react-icons/fa6";
 import { TiArrowSortedDown } from "react-icons/ti";
+import { useNavigate } from 'react-router-dom';
+
+
+
 const RightCart = ({ cartItems, isCanvasOpen, toggleCanvas }) => {
     const isEmpty = cartItems.length === 0;
     const [theme] = useThemeHook();
     const [showGiftModal, setShowGiftModal] = useState(false);
     // State to track the visibility of the special instructions text box for each item
     const [specialInstructionsVisible, setSpecialInstructionsVisible] = useState({});
+    const navigate = useNavigate();
 
+    const handleCheckout = () => {
+        handleClose();
+        navigate('cheakOut');
+    };
  // Function to toggle special instructions box
  const handleSpecialInstructionsToggle = (index) => {
     setSpecialInstructionsVisible((prevState) => ({
@@ -136,7 +145,7 @@ const RightCart = ({ cartItems, isCanvasOpen, toggleCanvas }) => {
                             <span >141.000 JD</span>
                           </div> 
                           <h1  className='Price mt-3'>Taxes included. Discounts and shipping calculated at checkout.</h1>
-                          <Button  className={theme? 'bg-light-black text-light border-but m-5': 'bg-light text-black border-but m-5'} onClick={handleClose}>
+                          <Button   onClick={handleCheckout} className={theme? 'bg-light-black text-light border-but m-5': 'bg-light text-black border-but m-5'}>
             Check out
         </Button>
                   </ul>

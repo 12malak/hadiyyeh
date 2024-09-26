@@ -211,7 +211,7 @@ const Header = ({ cartItems }) => {
                                         <NavDropdown.Item href="#action5">Something else here</NavDropdown.Item>
                                     </NavDropdown>
                                     <Nav.Link href="#action2" >FRAGRANCE TYPES</Nav.Link>
-                                    <Nav.Link href="#action2" >GIFT CARDS</Nav.Link>
+                                    <Nav.Link href="gift" >GIFT CARDS</Nav.Link>
                                     <Nav.Link href="/allproducts" >ALL PRODUCTS</Nav.Link>
                                   
                                 </Nav>

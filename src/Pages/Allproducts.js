@@ -12,35 +12,35 @@ const products = [
     {
       id: 1,
       title: 'Product 1',
-      description: 'This is a great product.', 
+      description: 'This is a great product This is a great product.', 
       image: '../images/blog.jpj',
       price: '$49.99',
     },
     {
       id: 2,
       title: 'Product 2',
-      description: 'Another awesome product.',
+      description: 'Another awesome product This is a great product.',
       image: 'https://via.placeholder.com/200',
       price: '$59.99',
     },
     {
       id: 3,
       title: 'Product 3',
-      description: 'You will love this product.',
+      description: 'You will love this product This is a great product.',
       image: 'https://via.placeholder.com/200',
       price: '$29.99',
     },
     {
       id: 4,
       title: 'Product 4',
-      description: 'Our latest collection.',
+      description: ' Our latest collection Our latest collection Our latest collection.',
       image: 'https://via.placeholder.com/200',
       price: '$39.99',
     },
     {
       id: 5,
       title: 'Product 5',
-      description: 'A must-have product.',
+      description: 'A must-have product.Our latest collectionOur latest collection Our latest collection',
       image: 'https://via.placeholder.com/200',
       price: '$89.99',
     },
@@ -75,7 +75,7 @@ const products = [
     {
       id: 10,
       title: 'Product 10',
-      description: 'This is a unique product.',
+      description: 'This is a unique product This is a unique product This is a unique product This is a unique product.',
       image: 'https://via.placeholder.com/200',
       price: '$119.99',
     },
@@ -315,6 +315,9 @@ function Allproducts() {
                                 {product.price}
                                 <del className="original-price">{product.price}</del>
                             </p>
+                            <button type="button"  className={theme? 'text-light btn btn-card m-5': 'text-black btn btn-card m-5'}>
+        Add to card
+            </button>
                         </div>
                     ))}
                 </div>

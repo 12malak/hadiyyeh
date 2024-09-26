@@ -41,7 +41,7 @@ const Brands = () => {
       {
         breakpoint: 768, // Medium screens
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 2,
           slidesToScroll: 1,
           infinite: true,
         },
@@ -49,7 +49,7 @@ const Brands = () => {
       {
         breakpoint: 576, // Small screens
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
           slidesToScroll: 1,
           autoplaySpeed: 2000,
           infinite: true,
@@ -82,9 +82,9 @@ const Brands = () => {
 
       {/* Render different layouts based on screen size */}
       {isLargeScreen ? (
-        <div className="row mt-4">
+        <div className="row m-4">
           {brandsData.map((brand) => (
-            <div key={brand.id} className="col-6 col-sm-4 col-md-2 text-center brand-image-container">
+            <div key={brand.id} className="col-6 col-sm-4 col-md-2 text-center brand-image-container ">
               <Image src={brand.image} alt={brand.name} className="brand-image img-fluid" />
               <a href={brand.link} target="_blank" className={theme ? 'm-3 link-Brands' : 'text-black m-3 link-Brands'} rel="noopener noreferrer">
                 {brand.name} <IoIosArrowRoundForward size="1.5rem" />
