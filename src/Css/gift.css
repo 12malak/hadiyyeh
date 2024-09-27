@@ -1,0 +1,16 @@
+.custom-modal .modal-dialog {
+    max-width: 100%; /* Set the width to 80% of the viewport width */
+  }
+  .Head-cart {
+    font-weight: normal; /* You can adjust this as needed */
+    color: rgb(168, 167, 167);
+  /* padding-left: 81px; */
+ 
+  font-size:14px ;
+}
+  @media (min-width: 768px) {
+    .custom-modal .modal-dialog {
+      max-width: 60%; /* For larger screens, reduce width if needed */
+    }
+  }
+  

@@ -153,7 +153,7 @@ const products = [
 // Set items per page to 16
 const ITEMS_PER_PAGE = 16;
 
-function Allproducts() {
+function Allproducts({ setCartItems }) {
     const [theme] = useThemeHook();
     const [currentPage, setCurrentPage] = useState(1);
     const [isOpen, setIsOpen] = useState(false);
@@ -161,6 +161,11 @@ function Allproducts() {
     const toggleOffcanvas = () => {
         setIsOpen(!isOpen);
     };
+
+     // Function to add an item to the cart
+ const addToCart = (newItem) => {
+    setCartItems((prevItems) => [...prevItems, newItem]);
+  };
     // Calculate the total number of pages
     const totalPages = Math.ceil(products.length / ITEMS_PER_PAGE);
 
@@ -186,47 +191,31 @@ function Allproducts() {
         <section className={theme ? 'bg-light-black text-light margin_section full-screen-slider' : 'bg-light text-black margin_section full-screen-slider'} data-aos="fade-up">
             <div className="container text-center container-all">
             <Row className="justify-content-start content-filter">
-                <Col lg={8} className="mt-1 mb-lg-0">
+                <Col lg={8} className="mb-lg-0">
                     <div className="d-flex justify-content-between">
-                        <ul className={`list-unstyled d-none d-md-flex justify-content-start mt-3`}>
-                            <li className={`me-3 title-filter mt-1 ${theme ? 'text-light' : 'text-black'}`}>
-                                Filter:
-                            </li>
-                            {/* Filter Selects for Desktop */}
-                            {["Availability", "Price", "Brand", "Size", "Product type"].map(option => (
-                                <li key={option} className="me-3">
-                                    <select className={`form-select custom-select ${theme ? 'bg-light-black text-light' : 'bg-light text-black'}`}>
-                                        <option value="">{option}</option>
-                                        <option value="electronics">Electronics</option>
-                                        <option value="fashion">Fashion</option>
-                                        <option value="furniture">Furniture</option>
-                                    </select>
-                                </li>
-                            ))}
-                        </ul>
+                   
                      
                     {/* Toggle Button for Offcanvas */}
                     <Link  
-                    className={`nav-link link-filter d-md-none mt-3 ${theme ? 'text-dark-primary' : 'text-light-primary'}`}
+                    className={`nav-link link-filter mt-3 ${theme ? 'text-dark-primary' : 'text-light-primary'}`}
                    
                     onClick={toggleOffcanvas}>
                          <IoFilterCircleOutline size="1.4rem"/>  Filter & Sort
                     </Link>
-                    <h6 className={` me-5 mt-3 d-md-none  ${theme ? 'text-dark-primary' : 'text-light-primary'}`}
-                    
-                    >
-                        644 products
-                    </h6>
+                
                 
                     </div>
                 </Col>
-                <Col lg={4} className="mt-1 mb-lg-0">
+                <Col lg={4} className=" mb-lg-0">
                     <ul className="list-unstyled d-none d-md-flex justify-content-start mt-3">
-                        <li className={`me-3 title-filter mt-1 ${theme ? 'text-light' : 'text-black'}`}>
+                        <li className={`me-3 title-filter mt-1 ${theme ? 'text-dark-primary' : 'text-light-primary'}`}>
                             Sort by:
                         </li>
                         <li className="me-3">
-                            <select className={`form-select custom-select ${theme ? 'bg-light-black text-light' : 'bg-light text-black'}`}>
+                            <select className={`form-select  ${theme ? 'bg-light-black text-dark-primary' : 'bg-light text-light-primary'}`}
+                          
+                            style={{ border: "none" }}
+                            >
                                 <option value="">Best selling</option>
                                 <option value="electronics">Electronics</option>
                                 <option value="fashion">Fashion</option>
@@ -234,12 +223,12 @@ function Allproducts() {
                                 {/* Add more categories as needed */}
                             </select>
                         </li>
-                        <li className={`me-3 title-filter mt-1 ${theme ? 'text-light' : 'text-black'}`}>
+                        <li className={`me-3 title-filter mt-1 ${theme ? 'text-dark-primary' : 'text-light-primary'}`}>
                         644 products
                         </li>
                     </ul>
                 </Col>
-                  {/* Product Count Visible on Small and Medium Screens */}
+                
                  
                    
             </Row>
@@ -293,9 +282,6 @@ function Allproducts() {
 
             {/* Backdrop for Offcanvas */}
             {isOpen && <div className="offcanvas-backdrop fade show" onClick={toggleOffcanvas}></div>}
-
-
-
             {/* Product Grid */}
                 <div className="row mt-5 justify-content-center">
                     {currentProducts.map((product) => (
@@ -315,9 +301,15 @@ function Allproducts() {
                                 {product.price}
                                 <del className="original-price">{product.price}</del>
                             </p>
-                            <button type="button"  className={theme? 'text-light btn btn-card m-5': 'text-black btn btn-card m-5'}>
+                            <button type="button"
+                             onClick={() =>
+                                addToCart({ id: 1, name: 'NEW PRODUCT NAME', price: 30 })
+                              }
+                            className={theme? 'text-light btn btn-card m-5': 'text-black btn btn-card m-5'}>
         Add to card
             </button>
+
+           
                         </div>
                     ))}
                 </div>

@@ -99,14 +99,14 @@
   
  
   .custom-select {
-   max-width: 120px; /* Set the desired width */
+   max-width: 200px; /* Set the desired width */
     height: 30px; /* Set the desired height */
-  width: 105px;
+  width: 100%;
     border:none;
     padding: 0px; /* Padding inside the select */
  
     transition: border-color 0.3s; /* Smooth transition for border */
-    font-size: 12px;
+   
 }
 
 .custom-select:focus {
@@ -115,7 +115,7 @@
 }
 .title-filter {
  
-  font-size: 13px; /* Increase the font size */
+ 
   color: #888;
  
 }
@@ -124,10 +124,7 @@
 .title-filter.text-light {
   color: #fff; /* Change to white for light text */
 }
-.content-filter{
 
-  padding-left: 92px;
-}
 
 
 /* Change background color on hover */

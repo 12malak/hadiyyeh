@@ -21,6 +21,7 @@ import Blogs from "./Pages/Blogs";
 import Allproducts from "./Pages/Allproducts";
 import CheakOut from "./components/CheakOut";
 import Gift from "./Pages/Gift";
+import GiftDetails from "./Pages/GiftDetails";
 function App() {
   const [theme] = useThemeHook();
   const [cartItems, setCartItems] = useState([
@@ -29,6 +30,8 @@ function App() {
     { name: 'US POLO ASSN. 1000-01 WATCH FOR MEN', price: 10 },
    
 ]);
+
+
   return (
     <Router>
        <Header cartItems={cartItems} />
@@ -36,6 +39,7 @@ function App() {
        <main className={theme ? 'bg-light-black' : 'bg-light'} style={{ paddingTop: '100px' }}>
        
         <Routes>
+        <Route path="/allproducts" element={<Allproducts setCartItems={setCartItems} />} />
         <Route path="/cheakOut" element={<CheakOut products={cartItems} />} />
           <Route path="/" element={<Home />} />
           <Route path="/my-account" element={<MyAccount />} />
@@ -47,8 +51,9 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/product-details" element={<ProductDetails />} />
-          <Route path="/allproducts" element={<Allproducts />} />
+          
           <Route path="/gift" element={<Gift />} />
+          <Route path="/giftDetails" element={<GiftDetails />} />
         </Routes>
         <AppFooter />
       </main>

@@ -144,7 +144,7 @@ const Header = ({ cartItems }) => {
     <div
       style={{ cursor: 'pointer' }}
       onClick={toggleCanvas}
-      className={`${
+      className={`m-2 ${
         darkMode ? 'text-dark-primary' : 'text-light-primary'
       } `}  // Hide on small screens, show on medium and up
     >
@@ -210,7 +210,7 @@ const Header = ({ cartItems }) => {
                                         <NavDropdown.Divider />
                                         <NavDropdown.Item href="#action5">Something else here</NavDropdown.Item>
                                     </NavDropdown>
-                                    <Nav.Link href="#action2" >FRAGRANCE TYPES</Nav.Link>
+                                   
                                     <Nav.Link href="gift" >GIFT CARDS</Nav.Link>
                                     <Nav.Link href="/allproducts" >ALL PRODUCTS</Nav.Link>
                                   

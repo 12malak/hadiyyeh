@@ -13,7 +13,7 @@ import OrderCard from '../components/OrderCard';
 const MyAccount = () => {
     const [theme] = useThemeHook();
     return (
-        <Container className="py-5 mt-5">
+        <Container className="py-5 ">
             <Heading heading="My Account" />
             <Tab.Container defaultActiveKey="my-orders">
                 <Row className="justify-content-evenly mt-4 p-1">

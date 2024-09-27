@@ -40,7 +40,7 @@ const SignIn = () => {
         }
     }
     return (
-       <Container className="py-5 mt-5">
+       <Container className="py-5">
             <Row className="justify-content-center mt-5">
                 <Col xs={11} sm={10} md={8} lg={4} className={`p-4 rounded ${theme? 'text-light bg-dark' : 'text-black bg-light'}`}>
                     <h1 className={`text-center border-bottom pb-3 ${theme? 'text-dark-primary' : 'text-light-primary'}`}>
