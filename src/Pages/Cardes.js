@@ -8,6 +8,7 @@ import axios from "axios";
 import {Image } from 'react-bootstrap'; // Import necessary components
 import { useThemeHook } from '../GlobalComponents/ThemeProvider';
 import slider1 from '../images/WATCHES-removebg-preview.png';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const settings = {
   speed: 300,
@@ -139,30 +140,47 @@ const Cardes = () => {
   className="slide"
 >
   {products.map((product) => (
-    <div className="col-lg-2 col-md-4 col-sm-12 product-card mb-5" key={product.id}>
-      
-      {/* Wrap image and button in a relative container */}
-      <div className="image-container">
-        <Image
-          src={slider1}
-          className="slider_img_home"
-          alt="First slide"
-        />
-        {/* Button placed on top of the image, aligned left */}
-        <button  className={theme? 'text-light btn-top-left': 'text-black btn-top-left'}>
-       Sale
-        </button>
-      </div>
-      
-      {/* Title and price section */}
-      <h5 className={theme ? 'text-light ' : 'text-black'}>{product.title}</h5>
-      <p className={theme ? 'text-light' : 'text-black'}>
-        ${product.price} 
-        <del className="original-price"> ${product.price}</del>
-      </p>
-      
+  <div className="col-lg-2 col-md-4 col-sm-12 product-card mb-5" key={product.id}>
+    
+    {/* Wrap image and button in a relative container */}
+    <div className="image-container d-flex justify-content-center">
+      <Image
+        src={slider1}
+        className="slider_img_home Card-image"
+        alt="First slide"
+      />
+      {/* Button placed on top of the image, aligned left */}
+      <button className={theme ? 'text-light btn-top-left' : 'text-black btn-top-left'}>
+        Sale
+      </button>
     </div>
-  ))}
+    
+   
+
+
+
+    {/* Title and price section */}
+    <h5 className={theme ? 'text-light ' : 'text-black'}>{product.title}</h5>
+    <p className={theme ? 'text-light' : 'text-black'}>
+      ${product.price} 
+      <del className="original-price"> ${product.price}</del>
+    </p>
+
+    <div className="d-flex justify-content-center"
+    
+    >
+      <button 
+        type="button" 
+        className={theme ? 'text-light btn m-3' : 'text-black btn m-3'}
+       
+      >
+      ADD TO CART
+      </button>
+    </div>
+    
+  </div>
+))}
+
 </Slider>
         </div>
         <button type="button"  className={theme? 'text-light btn btn-card m-5': 'text-black btn btn-card m-5'}

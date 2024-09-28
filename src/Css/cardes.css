@@ -45,7 +45,6 @@
 }
 .btn-card{
 width: 150px !important;
- 
   /* font-size: 0.89rem;
   background-color: #141414; */
 }
@@ -54,7 +53,7 @@ width: 150px !important;
 .product-card h5 {
   font-size: 1.2rem; /* Adjust the font size for the title */
  
- padding-right: 30%;
+
 }
 
 .product-card p {
@@ -62,7 +61,7 @@ width: 150px !important;
   margin: 0; /* Remove extra margin below the price */
   text-align: center;
    
- padding-right: 30%;
+  
 }
 
 .original-price {
@@ -85,7 +84,26 @@ width: 150px !important;
   position: relative;
   width: 100%; /* Adjust as necessary */
 }
+.image-container .Card-image ,.image-container .fargrances-image ,.image-container .bags-image {
+  transition: all 0.3s ease;
+}
 
+.image-container:hover .Card-image  {
+  content: url('../images/WATCHES7-removebg-preview.png'); /* Use the hover image here */
+  transform: scale(1.1); /* Optional: Adds a slight zoom effect */
+}
+
+.image-container:hover .bags-image  {
+  content: url('../images/i-numerati-parfum-.png'); /* Use the hover image here */
+  transform: scale(1.1); /* Optional: Adds a slight zoom effect */
+
+}
+
+.image-container:hover .fargrances-image {
+  content: url('../images/i-numerati-parfum-.png'); /* Use the hover image here */
+  transform: scale(1.1); /* Optional: Adds a slight zoom effect */
+ 
+}
 .slider_img_home {
   width: 70%; 
   height:400px; /* Maintain aspect ratio */

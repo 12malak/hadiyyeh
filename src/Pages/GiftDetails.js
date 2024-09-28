@@ -9,7 +9,13 @@ import { Link } from "react-router-dom";
 import slider2 from '../images/50Image.webp';
 import slider3 from '../images/25Image.webp';
 import slider4 from '../images/100Image.webp';
+import imageCard from '../images/Girl-removebg-preview.png';
+import imageCard2 from '../images/WATCHES7-removebg-preview.png';
+import imageCard3 from '../images/girl2-removebg-preview.png';
+import imageCard4 from '../images/images-removebg-preview.png';
+
 import { useNavigate } from 'react-router-dom';
+import { LuShare2 } from "react-icons/lu";
 const products = [
     {
       id: 1,
@@ -19,6 +25,39 @@ const products = [
       price: '$49.99',
     },
   ];
+  // Sample Product Data
+const products2 = [
+  {
+    id: 1,
+    title: 'Product 1',
+    description: 'This is a great product This is a great product.', 
+    image: imageCard4,
+    price: '$49.99',
+  },
+  {
+    id: 2,
+    title: 'Product 2',
+    description: 'Another awesome product This is a great product.',
+    image: imageCard,
+    price: '$59.99',
+  },
+  {
+    id: 3,
+    title: 'Product 3',
+    description: 'You will love this product This is a great product.',
+    image:imageCard2,
+    price: '$29.99',
+  },
+  {
+    id: 4,
+    title: 'Product 4',
+    description: ' Our latest collection Our latest collection Our latest collection.',
+    image:imageCard3,
+    price: '$39.99',
+  },
+ 
+  
+];
 const GiftDetails = () => {
   const [activeButton, setActiveButton] = useState(null);
   const [quantity, setQuantity] = useState(1);
@@ -70,8 +109,8 @@ const GiftDetails = () => {
     <Row 
       className={
         theme
-          ? 'bg-light-black text-light'
-          : 'bg-light text-black '
+          ? 'm-5 bg-light-black text-light'
+          : 'm-5 bg-light text-black '
       }
      
     >
@@ -208,10 +247,54 @@ const GiftDetails = () => {
      className={`${theme ? 'bg-dark-primary text-black' : 'bg-light-primary'} px-4 py-2 mt-5 w-50`}
      style={{ border: 0 ,textAlign:"center"}}
   >  ADD TO CARD</Button>
+   <div className={`mt-5  ${theme ? 'text-dark-primary ' : ''}`}>Remember your loved ones with our gift card vouchers, where you can give them the flexibility to choose what they most among various options from our products </div>
+
+  
+   
+      <div className={`mt-5  ${theme ? 'text-light' : 'text-black'}`}> 
+      <span className="ms-1"> <LuShare2 size="1.2rem" /></span> 
+   <Link to="/" className={` ${theme ? 'text-light' : 'text-black'}`}
+   style={{textDecoration: 'none'}}
+   >
+   
+   Share
+      </Link>
+      
+      </div>
       </Col>
     </Row>
+  {/* You May Also Like Section */}
+  <div className="mt-5 text-center">
+    <h3 className={theme ? 'text-light mt-5' : 'text-black mt-5'}>You May Also Like</h3>
+    
+    {/* Card Section */}
+    <div className="row m-5 justify-content-center">
+                    {products2.map((product) => (
+                        <div className="col-lg-3 col-md-4 col-sm-12 product-allcard mb-5 p-4" key={product.id}>
+                          <div className="image-container">
+          <Image
+            src={product.image}
+            className="img-fluid img_all m-3 product-image"
+            alt="First slide"
+          />
+          <button className={theme ? 'text-light btn-top-left' : 'text-black btn-top-left'}>
+            Sale
+          </button>
+        </div>
+                            <h6 className={theme ? 'text-light' : 'text-black'}>{product.description}</h6>
+                            <p className={theme ? 'text-light' : 'text-black'}>
+                                {product.price}
+                                <del className="original-price">{product.price}</del>
+                            </p>
+                           
+
+           
+                        </div>
+                    ))}
+                </div>
+  </div>
+</section>
   
-   </section>
   
   );
 };

@@ -7,12 +7,15 @@ import { FiMinus } from 'react-icons/fi';
 import { IoMdAdd } from 'react-icons/io';
 import { FaRegTrashCan } from 'react-icons/fa6';
 import slider1 from '../images/WATCHES2.jpg';
-
+import { Link } from "react-router-dom";
+import { TiArrowSortedDown } from "react-icons/ti";
+import { MdLocalOffer } from "react-icons/md";
+import { useNavigate } from 'react-router-dom';
 const Cart = () => {
     const [theme] = useThemeHook();
     const [showGiftModal, setShowGiftModal] = useState(false);
     const [selectedItem, setSelectedItem] = useState(null);
-
+    const navigate = useNavigate();
     const {
         isEmpty,
         items,
@@ -33,10 +36,14 @@ const Cart = () => {
         setShowGiftModal(false);
         setSelectedItem(null); // Reset selected item on close
     };
+    const handleCheckout = () => {
+        handleClose();
+        navigate('/cheakOut');
+    };
 
     return (
-        <Container className="py-4">
-            <h1 className={`${theme ? 'text-light' : 'text-light-primary'} my-5 `}>
+        <Container className="py-4 margin_section full-screen-slider">
+            <h1 className={`${theme ? 'text-light' : 'text-light-primary'} my-3  `}>
                 {isEmpty ? 'Your Cart is Empty' : 'Your cart'}
             </h1>
             <Row className="justify-content-center">
@@ -58,12 +65,12 @@ const Cart = () => {
                                         <div style={{ background: 'white', height: '8rem', overflow: 'hidden', display: 'flex',
                                         justifyContent: 'center', alignItems: 'center' }}>
                                             <div style={{ padding: '.5rem' }}>
-                                                <img src={slider1} style={{ width: '4rem' }} alt={item.title} />
+                                                <img src={slider1} style={{ maxWidth: '80px' }} alt={item.title} />
                                             </div>
                                         </div>
                                     </td>
                                     <td>
-                                        <h6 style={{ whiteSpace: 'nowrap', width: '14rem', overflow: 'hidden', textOverFlow: 'ellipsis' }}>
+                                        <h6 >
                                             {item.title}
                                         </h6>
                                         <h6 >{item.price}</h6>
@@ -98,15 +105,53 @@ const Cart = () => {
                         })}
                     </tbody>
                 </Table>
+                
+ 
+ <div class="row mb-5">
+    <div class="col-lg-6 col-md-6 col-sm-12 mb-5">
+{/* "Order Special Instructions" button */}
+<div
+                                className={` mt-2  ${theme ? 'text-light' : 'text-dark'}`}
+                               
+                            >
+                                <TiArrowSortedDown size="1rem"/> Order special instructions
+                            </div>
+
+                            {/* Special Instructions Textarea */}
+                           
+                                <textarea
+                                    className="form-control mt-2 w-50"
+                                    rows="3"
+                                   
+                                />
+
+
+
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12 mb-5">
+    <div
+                                className={` mt-2  ${theme ? 'text-light' : 'text-dark'}`}
+                               
+                            >
+                                <MdLocalOffer size="1rem"/>  5OFF (-8.150 JD)
+                            </div>
+
+  
+    <div className={`mt-2  ${theme ? 'text-light' : 'text-dark'}`}>Taxes included. Discounts and shipping calculated at checkout.
+    </div>
+
+    </div>
+  </div>
+
                 {!isEmpty && (
                     <Row
                         style={{ position: 'fixed', bottom: 0 }}
-                        className={`${theme ? 'bg-light-black text-light' : 'bg-light text-black'} justify-content-center w-100`}
+                        className={`${theme ? 'bg-light-black text-light' : 'bg-light text-black'} justify-content-center w-100 `}
                     >
-                        <Col className="py-2">
+                        <Col md={6}   className="py-2 text-center">
                             <h4>Total Price: Rs. {cartTotal}</h4>
                         </Col>
-                        <Col className="p-0" md={4}>
+                        <Col className="p-0 d-flex justify-content-center align-items-center" md={6}>
                             <Button
                                 type="submit"
                                 className={`${theme ? 'bg-dark-primary text-black' : 'bg-light-primary text-light'} px-4 py-2 m-3`}
@@ -118,6 +163,7 @@ const Cart = () => {
                             </Button>
                             <Button
                                 type="submit"
+                                onClick={handleCheckout}
                                 className={`${theme ? 'bg-dark-primary text-black' : 'bg-light-primary text-light'} px-4 py-2 m-3`}
                                 style={{ border: 0 }}
                             >
@@ -127,6 +173,8 @@ const Cart = () => {
                         </Col>
                     </Row>
                 )}
+
+
 
                 {/* Modal for "Is this a gift?" */}
                 <Modal show={showGiftModal} onHide={handleClose} className={theme ? 'text-light' : 'text-dark'}>

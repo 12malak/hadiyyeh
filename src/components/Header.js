@@ -89,7 +89,7 @@ const Header = ({ cartItems }) => {
             <Container className="d-flex align-items-center justify-content-between">
                 {/* Left Icons: Sign in */}
                 <Nav className="d-flex align-items-center">
-                <Link to="cart" className={`nav-link ${darkMode ? 'text-dark-primary' : 'text-light-primary'}`}>
+                <Link to="search" className={`nav-link ${darkMode ? 'text-dark-primary' : 'text-light-primary'}`}>
                       
                         <IoIosSearch 
                         size="1.3rem"/>
@@ -141,12 +141,12 @@ const Header = ({ cartItems }) => {
     </Link>
 
     {/* Cart Icon */}
-    <div
+    {/* <div
       style={{ cursor: 'pointer' }}
       onClick={toggleCanvas}
       className={`m-2 ${
         darkMode ? 'text-dark-primary' : 'text-light-primary'
-      } `}  // Hide on small screens, show on medium and up
+      } `}  
     >
         <GrCart size="1.2rem" />
         {!isEmpty && (
@@ -154,7 +154,21 @@ const Header = ({ cartItems }) => {
             {totalItems}
           </span>
         )}
-    </div>
+    </div> */}
+    <Link
+      style={{ cursor: 'pointer' }}
+       to="cart"
+      className={`m-2 ${
+        darkMode ? 'text-dark-primary' : 'text-light-primary'
+      } `}  
+    >
+        <GrCart size="1.2rem" />
+        {!isEmpty && (
+          <span style={{ position: 'relative', left: '-21px', top: '-18px' }}>
+            {totalItems}
+          </span>
+        )}
+    </Link>
 </Nav>
 
             </Container>

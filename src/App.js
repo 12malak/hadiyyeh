@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import { useThemeHook } from './GlobalComponents/ThemeProvider';
 import Header from './components/Header';
 import RightCart from './components/RightCart';
 import AppFooter from './components/AppFooter';
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
 
 // Pages
 import Home from './Pages/Home';
@@ -22,28 +21,36 @@ import Allproducts from "./Pages/Allproducts";
 import CheakOut from "./components/CheakOut";
 import Gift from "./Pages/Gift";
 import GiftDetails from "./Pages/GiftDetails";
-function App() {
+
+const App = () => {
   const [theme] = useThemeHook();
   const [cartItems, setCartItems] = useState([
     { name: 'US POLO ASSN. 1000-01 WATCH FOR MEN', price: 10 },
     { name: 'LATTAFA ANA ABIYEDH EDP UNISEX', price: 20 },
     { name: 'US POLO ASSN. 1000-01 WATCH FOR MEN', price: 10 },
-   
-]);
+    { name: 'US POLO ASSN. 1000-01 WATCH FOR MEN', price: 10 },
+    { name: 'LATTAFA ANA ABIYEDH EDP UNISEX', price: 20 },
+    { name: 'US POLO ASSN. 1000-01 WATCH FOR MEN', price: 10 },
+    { name: 'LATTAFA ANA ABIYEDH EDP UNISEX', price: 20 },
+    { name: 'US POLO ASSN. 1000-01 WATCH FOR MEN', price: 10 },
+    { name: 'US POLO ASSN. 1000-01 WATCH FOR MEN', price: 10 },
+    { name: 'LATTAFA ANA ABIYEDH EDP UNISEX', price: 20 },
 
+  ]);
 
+  // Get the current location
+  const location = useLocation();
+  
   return (
-    <Router>
-       <Header cartItems={cartItems} />
-       <RightCart cartItems={cartItems} setCartItems={setCartItems} theme={theme} />
-       <main className={theme ? 'bg-light-black' : 'bg-light'} style={{ paddingTop: '100px' }}>
-       
+    <>
+      <Header cartItems={cartItems} />
+      <RightCart cartItems={cartItems} setCartItems={setCartItems} theme={theme} />
+      <main className={theme ? 'bg-light-black' : 'bg-light'} style={{ paddingTop: '100px' }}>
         <Routes>
-        <Route path="/allproducts" element={<Allproducts setCartItems={setCartItems} />} />
-        <Route path="/cheakOut" element={<CheakOut products={cartItems} />} />
-          <Route path="/" element={<Home />} />
+          <Route path="/allproducts" element={<Allproducts setCartItems={setCartItems} cartItems={cartItems} />} />
+          <Route path="/cheakOut" element={<CheakOut products={cartItems} />} />
+          <Route path="/" element={<Home cartItems={cartItems} />} />
           <Route path="/my-account" element={<MyAccount />} />
-         
           <Route path="/search" element={<Search />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/register" element={<Register />} />
@@ -51,15 +58,22 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/product-details" element={<ProductDetails />} />
-          
           <Route path="/gift" element={<Gift />} />
           <Route path="/giftDetails" element={<GiftDetails />} />
         </Routes>
-        <AppFooter />
+        {/* Conditionally render the footer */}
+        {location.pathname !== '/cart' && <AppFooter />}
       </main>
-     
+    </>
+  );
+};
+
+const AppWrapper = () => {
+  return (
+    <Router>
+      <App />
     </Router>
   );
-}
+};
 
-export default App;
+export default AppWrapper;

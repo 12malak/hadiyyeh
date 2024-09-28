@@ -16,20 +16,20 @@ const RightCart = ({ cartItems, isCanvasOpen, toggleCanvas }) => {
     const [theme] = useThemeHook();
     const [showGiftModal, setShowGiftModal] = useState(false);
     // State to track the visibility of the special instructions text box for each item
-    const [specialInstructionsVisible, setSpecialInstructionsVisible] = useState({});
+   
+    const [specialInstructionsVisible, setSpecialInstructionsVisible] = useState(false);
+
+    const handleToggleInstructions = () => {
+        setSpecialInstructionsVisible((prevState) => !prevState);
+    };
     const navigate = useNavigate();
 
     const handleCheckout = () => {
         handleClose();
-        navigate('cheakOut');
+        navigate('/cheakOut');
     };
- // Function to toggle special instructions box
- const handleSpecialInstructionsToggle = (index) => {
-    setSpecialInstructionsVisible((prevState) => ({
-        ...prevState,
-        [index]: !prevState[index], // Toggle visibility for the specific item
-    }));
-};
+ 
+
     // Function to open the modal
     const handleGiftClick = () => {
         setShowGiftModal(true);
@@ -63,95 +63,99 @@ const RightCart = ({ cartItems, isCanvasOpen, toggleCanvas }) => {
                     onClick={toggleCanvas}
                 ></button>
             </div>
-            <div className="offcanvas-body">
-                {isEmpty ? (
-                    <p>Your cart is empty.</p>
-                ) : (
-                    <ul className="list-group scrollable-cart-items">
-                          <div className="d-flex justify-content-between w-100 mb-3">
-                            <span className='Price'>PRODUCT</span>
-                            <span className='Price'>TOTAL</span>
-                          </div>
+            <div className="offcanvas-body d-flex flex-column">
+    {isEmpty ? (
+        <p>Your cart is empty.</p>
+    ) : (
+        <>
+            {/* Scrollable Container for Cart Items */}
+            <div className="scrollable-cart-items flex-grow-1">
+                <ul className="list-group">
                     {cartItems.map((item, index) => (
-                      <li
-                        key={index}
-                        className={`list-group-item d-flex flex-column custom-list-item ${theme ? 'bg-light-black text-light' : 'bg-light text-black'}`}
-                      >
-                        <div className="d-flex align-items-center justify-content-between">
-                          {/* Image */}
-                          <Image
-                            src={slider1}
-                            className="img-fluid img-card"
-                            alt="First slide"
-                            style={{ width: '80px', height: '80px', objectFit: 'cover' }}
-                          />
-                          {/* Title and Price */}
-                          <div className="d-flex justify-content-between w-100">
-                            <span>{item.name}</span>
-                            <span>{item.price.toFixed(2)}</span>
-                          </div>
-                        </div>
-                  
-                        <h6 className='Price'>{item.price.toFixed(2)}</h6>
-                        <h6 className='Price'>Size: 100 ml</h6>
-                        {/* "Is this a gift?" button */}
-                        <button
-                          className={`btn btn-link mt-2 text-decoration-none ${theme ? '' : 'text-dark'}`}
-                          onClick={handleGiftClick}
+                        <li
+                            key={index}
+                            className={`list-group-item d-flex flex-column custom-list-item ${theme ? 'bg-light-black text-light' : 'bg-light text-black'}`}
                         >
-                          Is this a gift?
-                        </button>
-                  
-                        {/* Quantity Control */}
-                        <div className="d-flex align-items-center mt-3 Quantity">
-                          <button
-                            className="btn btn-outline-secondary"
-                            onClick={() => handleQuantityChange(item.id, 'decrease')}
-                            disabled={item.quantity <= 1} // Disable if quantity is 1 or less
-                          >
-                        <FiMinus size="1.4rem"/>
-                          </button>
-                          <span className="m-2">7</span> {/* Display current quantity */}
-                          <button
-                            className="btn btn-outline-secondary"
-                            onClick={() => handleQuantityChange(item.id, 'increase')}
-                          >
-                           <IoMdAdd size="1.4rem"/>
-                          </button>
-                          <span><FaRegTrashCan size="1rem"/></span>
-                        </div>
-                        {/* <hr className='mb-1 hr-card'/> */}
-                         {/* "Order Special Instructions" button */}
-                         <button
-                                className={`btn btn-link mt-2 text-decoration-none mt-5 ${theme ? '' : 'text-dark'}`}
-                                onClick={() => handleSpecialInstructionsToggle(index)}
-                            >
-                                Order special instructions <TiArrowSortedDown size="1rem"/>
-                            </button>
-
-                            {/* Special Instructions Textarea */}
-                            {specialInstructionsVisible[index] && (
-                                <textarea
-                                    className="form-control mt-2"
-                                    rows="3"
-                                    placeholder="Add your special instructions here..."
+                            <div className="d-flex align-items-center justify-content-between">
+                                {/* Image */}
+                                <Image
+                                    src={slider1}
+                                    className="img-fluid img-card"
+                                    alt="First slide"
+                                    style={{ width: '80px', height: '80px', objectFit: 'cover' }}
                                 />
-                            )}
-                      </li>
+                                {/* Title and Price */}
+                                <div className="d-flex justify-content-between w-100">
+                                    <span>{item.name}</span>
+                                    <span>{item.price.toFixed(2)}</span>
+                                </div>
+                            </div>
+                            <h6 className='Price'>{item.price.toFixed(2)}</h6>
+                            <h6 className='Price'>Size: 100 ml</h6>
+                            <button
+                                className={`btn btn-link mt-2 text-decoration-none ${theme ? '' : 'text-dark'}`}
+                                onClick={handleGiftClick}
+                            >
+                                Is this a gift?
+                            </button>
+                            {/* Quantity Control */}
+                            <div className="d-flex align-items-center mt-3 Quantity">
+                                <button
+                                    className="btn btn-outline-secondary"
+                                    onClick={() => handleQuantityChange(item.id, 'decrease')}
+                                    disabled={item.quantity <= 1}
+                                >
+                                    <FiMinus size="1.4rem"/>
+                                </button>
+                                <span className="m-2">{item.quantity}</span>
+                                <button
+                                    className="btn btn-outline-secondary"
+                                    onClick={() => handleQuantityChange(item.id, 'increase')}
+                                >
+                                    <IoMdAdd size="1.4rem"/>
+                                </button>
+                                <span><FaRegTrashCan size="1rem"/></span>
+                            </div>
+                        </li>
                     ))}
-
-<div className="d-flex justify-content-between w-100 mt-4">
-                            <span >Estimated total</span>
-                            <span >141.000 JD</span>
-                          </div> 
-                          <h1  className='Price mt-3'>Taxes included. Discounts and shipping calculated at checkout.</h1>
-                          <Button   onClick={handleCheckout} className={theme? 'bg-light-black text-light border-but m-5': 'bg-light text-black border-but m-5'}>
-            Check out
-        </Button>
-                  </ul>
-                  
-                )}
+                </ul>
             </div>
+
+            {/* Fixed area at the bottom for the estimated total, special instructions, and checkout */}
+            <div className="fixed-bottom-wrapper mt-4">
+                <div className="d-flex justify-content-between w-100">
+                    <span>Estimated total</span>
+                    <span>141.000 JD</span>
+                </div>
+                <h1 className='Price mt-3'>Taxes included. Discounts and shipping calculated at checkout.</h1>
+
+                {/* "Order Special Instructions" button */}
+                <button
+                    className={`btn btn-link mt-2 text-decoration-none mt-3 ${theme ? '' : 'text-dark'}`}
+                    onClick={() => handleToggleInstructions()}
+                >
+                    Order special instructions <TiArrowSortedDown size="1rem"/>
+                </button>
+
+                {/* Special Instructions Textarea */}
+                {specialInstructionsVisible && (
+                    <textarea
+                        className="form-control custom-textarea mt-2"
+                        rows="3"
+                        placeholder="Add your special instructions here..."
+                    />
+                )}
+
+                {/* Checkout Button */}
+                <Button onClick={handleCheckout} className={theme ? 'bg-light-black text-light border-but mt-5 w-100' : 'bg-light text-black border-but mt-5 w-100'}>
+                    Check out
+                </Button>
+            </div>
+        </>
+    )}
+</div>
+
+
 
            {/* Modal for "Is this a gift?" */}
 <Modal show={showGiftModal} onHide={handleClose} className={theme ? ' text-light' : 'text-dark '}>

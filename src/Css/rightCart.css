@@ -11,32 +11,7 @@
     text-decoration:underline !important;
 
 }
-.scrollable-cart-items {
-    max-height:800px; /* Set a max height for the cart items container */
-    overflow-y: auto; /* Allow vertical scrolling */
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-    padding: 5px; /* Add some padding for better visibility */
-  
-    scrollbar-width: thin; /* Thin scrollbar for Firefox */
-    scrollbar-color: #888 transparent; /* Custom scrollbar colors for Firefox */
-}
 
-.scrollable-cart-items::-webkit-scrollbar {
-    width: 5px; /* Width of the scrollbar */
-}
-
-.scrollable-cart-items::-webkit-scrollbar-thumb {
-    background-color: #888; /* Color of the scroll thumb */
-    border-radius: 10px; /* Rounded corners for the thumb */
-}
-
-.scrollable-cart-items::-webkit-scrollbar-thumb:hover {
-    background-color: #555; /* Darker color when hovered */
-}
-
-.scrollable-cart-items::-webkit-scrollbar-track {
-    background: transparent; /* Background for the scrollbar track */
-}
 
   
 /* General custom styles for dark and light themes */
@@ -106,6 +81,11 @@ span {
     cursor: pointer;
    
 }
+/* styles.css or your component-specific CSS file */
+.custom-textarea {
+    width: 100%; /* Set the width as needed */
+    min-height: 7rem !important; /* Maintain the min-height */
+}
 
 .border-but:hover{
     border: 1px solid #333;
@@ -122,23 +102,43 @@ span {
     background-color: #ccc;
     color: #333;
 }
-/* For medium-sized screens (e.g., tablets) */
-@media (max-width: 1024px) {
-    .scrollable-cart-items {
-        max-height:700px; /* Reduce max height for medium screens */
-    }
+/* Allow the cart item list to scroll */
+.scrollable-cart-items {
+    overflow-y: auto;
+    padding-right: 10px; /* Optional to give space between scrollbar and content */
 }
 
-/* For smaller screens (e.g., mobile phones) */
-@media (max-width: 768px) {
-    .scrollable-cart-items {
-        max-height: 600px; /* Further reduce max height for small screens */
-    }
+/* Flex-grow will make the scrollable content take the available space */
+.offcanvas-body {
+    display: flex;
+    flex-direction: column;
+    height: 90%; /* Make sure it takes full height */
 }
 
-/* For extra small screens */
-@media (max-width: 480px) {
-    .scrollable-cart-items {
-        max-height: 700px; /* Set a smaller height for very small screens */
-    }
+/* Fixed bottom area */
+.fixed-bottom-wrapper {
+    margin-top: auto; /* Push this section to the bottom */
+    background-color: inherit; /* Keep the same background */
+    padding-bottom: 20px; /* Add space from the bottom */
+}
+
+
+
+
+
+.scrollable-cart-items::-webkit-scrollbar {
+    width: 5px; /* Width of the scrollbar */
+}
+
+.scrollable-cart-items::-webkit-scrollbar-thumb {
+    background-color: #888; /* Color of the scroll thumb */
+    border-radius: 10px; /* Rounded corners for the thumb */
+}
+
+.scrollable-cart-items::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Darker color when hovered */
+}
+
+.scrollable-cart-items::-webkit-scrollbar-track {
+    background: transparent; /* Background for the scrollbar track */
 }

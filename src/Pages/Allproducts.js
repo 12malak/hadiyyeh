@@ -3,10 +3,12 @@ import "../Css/allproducts.css";
 import { Image } from 'react-bootstrap';
 import { useThemeHook } from '../GlobalComponents/ThemeProvider';
 import slider1 from '../images/girl2-removebg-preview.png';
+import hoverImage from '../images/WATCHES-removebg-preview.png'; 
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import { Container, Row, Col , Form} from 'react-bootstrap';
 import { IoFilterCircleOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import RightCart from '../components/RightCart';
 // Sample Product Data
 const products = [
     {
@@ -153,19 +155,20 @@ const products = [
 // Set items per page to 16
 const ITEMS_PER_PAGE = 16;
 
-function Allproducts({ setCartItems }) {
+function Allproducts({cartItems  }) {
     const [theme] = useThemeHook();
     const [currentPage, setCurrentPage] = useState(1);
     const [isOpen, setIsOpen] = useState(false);
-
+    const [isCanvasOpen, setCanvasOpen] = useState(false);
+    
+    const toggleCanvas = () => {
+        setCanvasOpen(!isCanvasOpen);
+    };
     const toggleOffcanvas = () => {
         setIsOpen(!isOpen);
     };
 
-     // Function to add an item to the cart
- const addToCart = (newItem) => {
-    setCartItems((prevItems) => [...prevItems, newItem]);
-  };
+
     // Calculate the total number of pages
     const totalPages = Math.ceil(products.length / ITEMS_PER_PAGE);
 
@@ -282,37 +285,48 @@ function Allproducts({ setCartItems }) {
 
             {/* Backdrop for Offcanvas */}
             {isOpen && <div className="offcanvas-backdrop fade show" onClick={toggleOffcanvas}></div>}
-            {/* Product Grid */}
-                <div className="row mt-5 justify-content-center">
-                    {currentProducts.map((product) => (
-                        <div className="col-lg-3 col-md-4 col-sm-12 product-allcard mb-5" key={product.id}>
-                            <div className="image-container">
-                                <Image
-                                    src={slider1}
-                                    className="img-fluid img_all m-3"
-                                    alt="First slide"
-                                />
-                                <button className={theme ? 'text-light btn-top-left' : 'text-black btn-top-left'}>
-                                    Sale
-                                </button>
-                            </div>
-                            <h6 className={theme ? 'text-light' : 'text-black'}>{product.description}</h6>
-                            <p className={theme ? 'text-light' : 'text-black'}>
-                                {product.price}
-                                <del className="original-price">{product.price}</del>
-                            </p>
-                            <button type="button"
-                             onClick={() =>
-                                addToCart({ id: 1, name: 'NEW PRODUCT NAME', price: 30 })
-                              }
-                            className={theme? 'text-light btn btn-card m-5': 'text-black btn btn-card m-5'}>
-        Add to card
-            </button>
+            <div className="row mt-5 justify-content-center">
+  {currentProducts.map((product) => (
+    <div className="col-lg-3 col-md-4 col-sm-12 product-allcard mb-5" key={product.id}>
+      
+      {/* Add a flex container to wrap the product content */}
+      <div className="product-content d-flex flex-column h-100">
 
-           
-                        </div>
-                    ))}
-                </div>
+        {/* Image and Sale Button */}
+        <div className="image-container">
+          <Image
+            src={slider1}
+            className="img-fluid img_all m-3 product-image"
+            alt="First slide"
+          />
+          <button className={theme ? 'text-light btn-top-left' : 'text-black btn-top-left'}>
+            Sale
+          </button>
+        </div>
+
+        {/* Description and Price */}
+        <h6 className={theme ? 'text-light' : 'text-black'}>{product.description}</h6>
+        <p className={theme ? 'text-light ' : 'text-black'}>
+          {product.price}
+          <del className="original-price">{product.price}</del>
+        </p>
+
+        {/* Push button to the bottom */}
+        <div className="mt-auto">
+          <button
+            type="button"
+            onClick={toggleCanvas}
+            className={theme ? 'text-light btn btn-card' : 'text-black btn btn-card'}
+          >
+            ADD TO CART
+          </button>
+        </div>
+      </div>
+      
+    </div>
+  ))}
+</div>
+
                 {/* Pagination Controls */}
                 <div className="pagination-controls m-5">
                     <a href="#" onClick={handlePreviousPage} className={currentPage === 1 ? "disabled-link mx-2" : "mx-2"}>
@@ -324,6 +338,12 @@ function Allproducts({ setCartItems }) {
                     </a>
                 </div>
             </div>
+         {/* Include the RightCart component */}
+         <RightCart 
+                cartItems={cartItems} 
+                isCanvasOpen={isCanvasOpen} 
+                toggleCanvas={toggleCanvas} 
+            />
         </section>
     );
 }

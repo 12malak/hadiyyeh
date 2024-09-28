@@ -123,6 +123,7 @@ const products = [
 
 function Bags() {
     const [theme] = useThemeHook();
+    
     return (
       
        
@@ -142,10 +143,10 @@ function Bags() {
       <div className="col-lg-2 col-md-4 col-sm-12 product-card mb-5" key={product.id}>
         
         {/* Wrap image and button in a relative container */}
-        <div className="image-container">
+        <div className="image-container d-flex justify-content-center">
           <Image
             src={slider3}
-            className="slider_img_home"
+            className="slider_img_home bags-image"
             alt="First slide"
           />
           {/* Button placed on top of the image, aligned left */}
@@ -160,7 +161,18 @@ function Bags() {
           ${product.price} 
           <del className="original-price"> ${product.price}</del>
         </p>
-        
+        <div className="d-flex justify-content-center"
+    
+    >
+      <button 
+        type="button" 
+        className={theme ? 'text-light btn m-3' : 'text-black btn m-3'}
+       
+      >
+      ADD TO CART
+      </button>
+    </div>
+    
       </div>
     ))}
   </Slider>
