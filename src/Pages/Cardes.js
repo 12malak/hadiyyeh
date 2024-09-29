@@ -171,7 +171,7 @@ const Cardes = () => {
     >
       <button 
         type="button" 
-        className={theme ? 'text-light btn m-3' : 'text-black btn m-3'}
+        className={theme ? 'text-light btn btn-card m-3' : 'text-black btn-card btn m-3'}
        
       >
       ADD TO CART

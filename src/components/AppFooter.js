@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import { Container, Row, Col , Form} from 'react-bootstrap';
 import { FaFacebook } from 'react-icons/fa';
 import { RiTiktokFill } from 'react-icons/ri';
-import { MdGTranslate } from 'react-icons/md';
+import { BsInstagram } from "react-icons/bs";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { ThemeContext } from '../GlobalComponents/ThemeProvider';
 import '../Css/appFooter.css'
@@ -10,9 +10,9 @@ function AppFooter() {
   const { theme, setThemeMode } = useContext(ThemeContext); 
   const [darkMode, setDarkMode] = useState(theme);
     return (
-        <footer  className={`text-center text-lg-start footer ${theme ? 'bg-light-black text-light' : 'bg-light text-black'}`}>
+        <footer  className={` text-lg-start footer ${theme ? 'bg-light-black text-light' : 'bg-light text-black'}`}>
             <Container className="p-3">
-                <Row className="justify-content-center">
+                {/* <Row className="justify-content-center">
                     <Col lg={12} className="mb-4 mb-lg-0">
                         <ul className="list-unstyled d-flex justify-content-center mb-3">
                             <li className="ms-3">
@@ -52,11 +52,11 @@ function AppFooter() {
                             </li>
                         </ul>
                     </Col>
-                </Row>
-                <Row className="justify-content-between align-items-center">
-                    <Col lg={6} className="text-start">
-                        <h6 className="text-uppercase">JOIN OUR FAMILY</h6>
-                        <Form.Group className="mb-3 col-lg-6 position-relative">
+                </Row> */}
+            <Row className="justify-content-between align-items-center">
+    <Col lg={6} className="text-start">
+        <h6 className="text-uppercase">JOIN OUR FAMILY</h6>
+        <Form.Group className="mb-3 position-relative">
             <IoIosArrowRoundForward 
                 size="1.5rem" 
                 className="position-absolute" 
@@ -67,16 +67,31 @@ function AppFooter() {
                 type="email" 
                 placeholder="Email" 
                 required 
-              
             />
         </Form.Group>
-                    </Col>
-                    <Col lg={6} className="text-end">
-                        <FaFacebook  size="1.1rem"  className="ms-3" />
-                        <RiTiktokFill  size="1.1rem"  className="ms-3" />
-                        <MdGTranslate   size="1.1rem"  className="ms-3" />
-                    </Col>
-                </Row>
+    </Col>
+
+    <Col lg={6} className="text-end">
+        {/* Social media icons */}
+        <FaFacebook size="1.1rem" className="ms-3" />
+        <RiTiktokFill size="1.1rem" className="ms-3" />
+        <BsInstagram size="1.1rem" className="ms-3" />
+        
+       {/* Contact Information */}
+<div className="mt-3">
+    <p className="mb-1">
+       <a href="mailto:Info@hadiyyeh.com" className="link-Footer">Info@hadiyyeh.com</a>
+    </p>
+   
+    <p className="mb-0">
+       <a href="tel:+962775831777" className="link-Footer">+962 77 5831 777</a>
+    </p>
+</div>
+
+    </Col>
+</Row>
+
+
                 <hr/>
                 <Row className="text-start g-0">
   <Col lg={6} className="text-start style-formG m-2">
@@ -99,40 +114,33 @@ function AppFooter() {
     </Form.Group>
   </Col>
 </Row>
-<Row className="justify-content-start"> {/* Changed from justify-content-center to justify-content-start */}
+<Row className="justify-content-start">
   <Col lg={12} className="mt-4 mb-lg-0">
-    <ul className="list-unstyled d-flex justify-content-start mt-3"> {/* Changed from justify-content-center to justify-content-start */}
-      <li className="ms-3">
-        <a href="#!" className={theme ? ' linkbottom-Footer' : 'text-black linkbottom-Footer'}>
-        © 2024, Hadiyyeh 
+    <ul className="list-unstyled d-flex flex-column flex-lg-row justify-content-start mt-3">
+      <li className="ms-3 mb-2 mb-lg-0">
+        <a href="/" className={theme ? 'linkbottom-Footer' : 'text-black linkbottom-Footer'}>
+          © 2024, Hadiyyeh 
         </a>
       </li>
-      <li className="ms-3">
-        <a href="#!" className={theme ? ' linkbottom-Footer' : 'text-black linkbottom-Footer'}>
-        Refund policy
-
+      <li className="ms-3 mb-2 mb-lg-0">
+        <a href="/refund" className={theme ? 'linkbottom-Footer' : 'text-black linkbottom-Footer'}>
+          Refund policy
         </a>
       </li>
-      <li className="ms-3">
-        <a href="#!" className={theme ? 'linkbottom-Footer' : 'text-black linkbottom-Footer'}>
-        Privacy policy
-
+      <li className="ms-3 mb-2 mb-lg-0">
+        <a href="/privacy" className={theme ? 'linkbottom-Footer' : 'text-black linkbottom-Footer'}>
+          Privacy policy
         </a>
       </li>
-      <li className="ms-3">
-        <a href="#!" className={theme ? ' linkbottom-Footer' : 'text-black linkbottom-Footer'}>
-        Terms of service
-
-        </a>
-      </li>
-      <li className="ms-3">
-        <a href="#!" className={theme ? 'linkbottom-Footer' : 'text-black linkbottom-Footer'}>
-        Contact information
+      <li className="ms-3 mb-2 mb-lg-0">
+        <a href="/terms" className={theme ? 'linkbottom-Footer' : 'text-black linkbottom-Footer'}>
+          Terms of service
         </a>
       </li>
     </ul>
   </Col>
 </Row>
+
 
 
             </Container>

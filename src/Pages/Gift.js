@@ -107,7 +107,14 @@ function Gift() {
                     </ul>
                 </Col>
                 
-                 
+                <Col lg={4} className="mb-lg-0">
+    {/* For smaller screens */}
+    <ul className="list-unstyled d-flex m-2 justify-content-start d-md-none">
+        <li className={`me-3 title-filter ${theme ? 'text-dark-primary' : 'text-light-primary'}`}>
+            644 products
+        </li>
+    </ul>
+</Col>
                    
             </Row>
 
@@ -122,6 +129,7 @@ function Gift() {
                 <div className="offcanvas-header">
                     <h5 className={`offcanvas-title ${theme ? 'text-light' : 'text-black'}`} id="offcanvasRightLabel">Filters and Sort</h5>
                     <button type="button" className="btn-close" onClick={toggleOffcanvas} aria-label="Close"></button>
+                    
                 </div>
                 <div className="offcanvas-body">
                     {/* Filter Options in Offcanvas */}
@@ -154,6 +162,9 @@ function Gift() {
                                 {/* Add more categories as needed */}
                             </select>
                         </li>
+
+
+                      
                     </ul>
                 </div>
             </div>

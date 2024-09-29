@@ -3,14 +3,14 @@
   color: #888;
   text-decoration: none;
   font-size: 15px;  
-
+  transition: color 0.3s ease-in-out;
 }
 .linkbottom-Footer{
 
   display: block;
   color: #888;
   text-decoration: none;
-  font-size: 11px;  
+  font-size: 14px;  
 
 }
 a:hover {
@@ -70,9 +70,6 @@ hr{
 }
 
 @media (max-width: 768px) {
-  .link-Footer , .linkbottom-Footer {
-  font-size: 10px;
-}
 
 .footer .form-group {
   width: 80%;
@@ -85,9 +82,7 @@ hr{
 }
 
 @media (max-width: 576px) {
-.link-Footer , .linkbottom-Footer {
-  font-size: 8px;
-}
+
 
 .footer h5 {
   font-size: 0.70rem;

@@ -59,7 +59,7 @@
 
 
 .text-center .btn {
-    width: 70%; /* Reduce the button width by 50% */
+   
     font-size: 0.89rem;
     border: 2px solid #8b8a8a; /* Add border color */
     padding: 10px 20px; /* Adjust padding */

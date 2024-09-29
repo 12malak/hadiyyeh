@@ -193,7 +193,7 @@ function Allproducts({cartItems  }) {
     return (
         <section className={theme ? 'bg-light-black text-light margin_section full-screen-slider' : 'bg-light text-black margin_section full-screen-slider'} data-aos="fade-up">
             <div className="container text-center container-all">
-            <Row className="justify-content-start content-filter">
+            <Row className="justify-content-between content-filter">
                 <Col lg={8} className="mb-lg-0">
                     <div className="d-flex justify-content-between">
                    
@@ -232,7 +232,14 @@ function Allproducts({cartItems  }) {
                     </ul>
                 </Col>
                 
-                 
+                <Col lg={4} className="mb-lg-0">
+    {/* For smaller screens */}
+    <ul className="list-unstyled d-flex m-2 justify-content-start d-md-none">
+        <li className={`me-3 title-filter ${theme ? 'text-dark-primary' : 'text-light-primary'}`}>
+            644 products
+        </li>
+    </ul>
+</Col>
                    
             </Row>
 

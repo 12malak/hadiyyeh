@@ -68,9 +68,15 @@ const RightCart = ({ cartItems, isCanvasOpen, toggleCanvas }) => {
         <p>Your cart is empty.</p>
     ) : (
         <>
+        {/* Header for product and total */}
+        <div className="d-flex justify-content-between mb-3">
+                <span className='Price'>PRODUCT</span>
+                <span className='Price'>TOTAL</span>
+            </div>
             {/* Scrollable Container for Cart Items */}
             <div className="scrollable-cart-items flex-grow-1">
                 <ul className="list-group">
+                    
                     {cartItems.map((item, index) => (
                         <li
                             key={index}

@@ -14,14 +14,16 @@ import ProductDetails from "./Pages/ProductDetails";
 import SignIn from "./Pages/SignIn";
 import Register from "./Pages/Register";
 import MyAccount from "./Pages/MyAccount";
-import Search from "./Pages/Search";
+import Search from "./components/Search";
 import Cardes from "./Pages/Cardes";
 import Blogs from "./Pages/Blogs";
 import Allproducts from "./Pages/Allproducts";
 import CheakOut from "./components/CheakOut";
 import Gift from "./Pages/Gift";
 import GiftDetails from "./Pages/GiftDetails";
-
+import Refund from "./Pages/Refund";
+import Privacy from "./Pages/Privacy";
+import Terms from "./Pages/Terms";
 const App = () => {
   const [theme] = useThemeHook();
   const [cartItems, setCartItems] = useState([
@@ -60,6 +62,9 @@ const App = () => {
           <Route path="/product-details" element={<ProductDetails />} />
           <Route path="/gift" element={<Gift />} />
           <Route path="/giftDetails" element={<GiftDetails />} />
+          <Route path="/refund" element={<Refund />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
         </Routes>
         {/* Conditionally render the footer */}
         {location.pathname !== '/cart' && <AppFooter />}
