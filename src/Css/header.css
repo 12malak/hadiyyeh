@@ -13,7 +13,16 @@
     top: 130px;
     height: 60px;
 }
+.small-select {
+    /* Smaller select styling */
+    font-size: 14px;
+  
+    border-color:  rgb(102, 102, 102);
+   
+    border: none; /* Remove default border */
+  box-shadow: none; /* Remove default shadow */
 
+  }
 /* Styling for the banner */
 .banner-fixed {
     background-color: #121212;
@@ -102,6 +111,13 @@
         gap: 10px;
         padding: 1rem;
     }
+    .small-select {
+        /* Smaller select styling */
+        font-size: 12px;
+        background-color: rgb(102, 102, 102);
+        border-color:  rgb(102, 102, 102);
+        color:  rgb(102, 102, 102);
+      }
 }
 
 
@@ -150,6 +166,13 @@
         gap: 10px;
         padding: 1rem;
     }
+    .small-select {
+        /* Smaller select styling */
+        font-size: 12px;
+        background-color: rgb(102, 102, 102);
+        border-color:  rgb(102, 102, 102);
+        color:  rgb(102, 102, 102);
+      }
 }
 
 /* Ensure the banner height is consistent across all screen sizes */
@@ -192,6 +215,13 @@
     .text-Icons{
         gap: 0px;
     }
+    .small-select {
+        /* Smaller select styling */
+        font-size: 12px;
+        background-color: rgb(102, 102, 102);
+        border-color:  rgb(102, 102, 102);
+        color:  rgb(102, 102, 102);
+      }
 }
 
 /* Ensure the banner height is consistent across all screen sizes */

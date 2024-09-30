@@ -4,7 +4,7 @@ import { ThemeContext } from '../GlobalComponents/ThemeProvider';
 import { BiSun, BiMoon, BiCart } from 'react-icons/bi';
 import { GrCart } from "react-icons/gr";
 import { VscAccount } from 'react-icons/vsc';
-import { Link } from "react-router-dom";
+
 
 import { useCart } from "react-use-cart";
 import NavDropdown from 'react-bootstrap/NavDropdown';
@@ -17,6 +17,7 @@ import { RiTiktokFill } from "react-icons/ri";
 import { MdGTranslate } from "react-icons/md";
 import Logo from '../images/Logo.avif';
 import RightCart from './RightCart';
+import { Link, useLocation , useNavigate} from "react-router-dom";
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
 const banners = [
@@ -32,6 +33,31 @@ const Header = ({ cartItems }) => {
     const [isCanvasOpen, setCanvasOpen] = useState(false);
     const [currentBannerIndex, setCurrentBannerIndex] = useState(0);
     const [showSearch, setShowSearch] = useState(false); 
+    const location = useLocation();
+    const navigate = useNavigate();
+  
+    // Get the current language from the path or default to 'en'
+    const lang = location.pathname.split('/')[1] || 'en';
+  
+    // Default selected option to the current language from the URL
+    const [selectedOption, setSelectedOption] = useState(lang);
+  
+    const handleSelection = (event) => {
+      const newLang = event.target.value;
+      setSelectedOption(newLang);
+  
+      // Construct the new URL with the new language
+      const newPath = `/${newLang}${location.pathname.substring(lang.length + 1)}`; // Adjust path for new language
+  
+      // Navigate to the new URL
+      navigate(newPath);
+    };
+  
+    // Optionally, update the selected option if the language in the URL changes (e.g., through manual URL entry)
+    useEffect(() => {
+      setSelectedOption(lang);
+    }, [lang]);
+  
     useEffect(() => {
         const intervalId = setInterval(() => {
             setCurrentBannerIndex((prevIndex) => (prevIndex + 1) % banners.length);
@@ -104,17 +130,23 @@ const Header = ({ cartItems }) => {
             <Container className="d-flex align-items-center justify-content-between">
                 {/* Left Icons: Sign in */}
                 <Nav className="d-flex align-items-center">
-                <Link to="/product-details" className={`nav-link ${darkMode ? 'text-dark-primary' : 'text-light-primary'}`}>
-                      
-                        <IoIosSearch 
-                        size="1.3rem"/>
-                    </Link>
-                    <Link to="sign-in" className={`nav-link ${darkMode ? 'text-dark-primary' : 'text-light-primary'} d-none d-md-block`}>
-                      
-                      <VscAccount 
-                      size="1.2rem"/>
-                  </Link>
-                
+             
+                  <div  className={`dropdown-wrapper ${theme ?'bg-light-black text-light ': 'bg-light text-black'} `}>
+      <select className="form-select small-select" onChange={handleSelection}>
+        <option value="en">En</option>
+        <option value="ar">Ar</option>
+      </select>
+    </div>
+     
+                 {/* Dark Mode Toggle */}
+                 <Nav.Link 
+      className={`${
+        darkMode ? 'text-dark-primary' : 'text-light-primary'
+      } d-none d-md-block`}  // Hide on small screens, show on medium and up
+      onClick={() => setDarkMode(!darkMode)}
+    >
+        {darkMode ? <BiSun size="1.2rem" /> : <BiMoon size="1.2rem" />}
+    </Nav.Link>
                 </Nav>
 
                 {/* Centered Logo */}
@@ -135,25 +167,27 @@ const Header = ({ cartItems }) => {
                 {/* Right Icons: Dark mode toggle,Translate and Cart*/}
                {/* Right Icons: Dark mode toggle, Cart, Account */}
 <Nav className="d-flex align-items-center">
-    {/* Dark Mode Toggle */}
-    <Nav.Link 
-      className={`${
-        darkMode ? 'text-dark-primary' : 'text-light-primary'
-      } d-none d-md-block`}  // Hide on small screens, show on medium and up
-      onClick={() => setDarkMode(!darkMode)}
-    >
-        {darkMode ? <BiSun size="1.2rem" /> : <BiMoon size="1.2rem" />}
-    </Nav.Link>
-
+   
+<Link to={`${lang}/product-details`} className={`nav-link ${darkMode ? 'text-dark-primary' : 'text-light-primary'}`}>
+                      
+                      <IoIosSearch 
+                      size="1.3rem"/>
+                  </Link>
+                  <Link to={`${lang}/sign-in`} className={`nav-link ${darkMode ? 'text-dark-primary' : 'text-light-primary'} d-none d-md-block`}>
+                    
+                    <VscAccount 
+                    size="1.2rem"/>
+                </Link>
     {/* Translate Icon */}
-    <Link
-      to="my-account"
+    {/* <Link
+    to={`${lang}/my-account`}
+    
       className={`nav-link ${
         darkMode ? 'text-dark-primary' : 'text-light-primary'
       } d-none d-md-block`}  // Hide on small screens, show on medium and up
     >
         <MdGTranslate size="1.2rem" />
-    </Link>
+    </Link> */}
 
     {/* Cart Icon */}
     {/* <div
@@ -172,7 +206,8 @@ const Header = ({ cartItems }) => {
     </div> */}
     <Link
       style={{ cursor: 'pointer' }}
-       to="cart"
+     
+       to={`${lang}/cart`}
       className={`m-2 ${
         darkMode ? 'text-dark-primary' : 'text-light-primary'
       } `}  
@@ -240,8 +275,8 @@ const Header = ({ cartItems }) => {
                                         <NavDropdown.Item href="#action5">Something else here</NavDropdown.Item>
                                     </NavDropdown>
                                    
-                                    <Nav.Link href="gift" >GIFT CARDS</Nav.Link>
-                                    <Nav.Link href="/allproducts" >ALL PRODUCTS</Nav.Link>
+                                    <Nav.Link href={`/${lang}/gift`} >GIFT CARDS</Nav.Link>
+                                    <Nav.Link href={`/${lang}/allproducts`} >ALL PRODUCTS</Nav.Link>
                                   
                                 </Nav>
 
@@ -264,11 +299,11 @@ const Header = ({ cartItems }) => {
         {darkMode ? <BiSun size="1.2rem" /> : <BiMoon size="1.2rem" />}
     </Nav.Link>
    
-    <Link to="my-account" className={`nav-link ${darkMode ? 'text-dark-primary' : 'text-light-primary'} mx-2`}>
+    <Link  to={`${lang}/my-account`} className={`nav-link ${darkMode ? 'text-dark-primary' : 'text-light-primary'} mx-2`}>
         <VscAccount size="1.2rem" />
     </Link>
    
-    <Link to="my-account" className={`nav-link ${darkMode ? 'text-dark-primary' : 'text-light-primary'} mx-2`}>
+    <Link  to={`${lang}/my-account`}  className={`nav-link ${darkMode ? 'text-dark-primary' : 'text-light-primary'} mx-2`}>
         <MdGTranslate size="1.2rem" />
     </Link>
 </div>

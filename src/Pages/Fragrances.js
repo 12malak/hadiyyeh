@@ -7,7 +7,7 @@ import CountUp from "react-countup";
 import axios from "axios";
 import {Image } from 'react-bootstrap'; // Import necessary components
 
-
+import { useNavigate } from 'react-router-dom';
 import slider3 from '../images/girl2-removebg-preview.png';
 import { useThemeHook } from '../GlobalComponents/ThemeProvider';
 
@@ -123,6 +123,12 @@ const products = [
 
 function Fragrances() {
     const [theme] = useThemeHook();
+    const navigate = useNavigate();
+    const handleAllFragrance= () => {
+   
+      navigate('/allFragrance');
+  };
+
     return (
       
        
@@ -177,7 +183,7 @@ function Fragrances() {
   </Slider>
   
           </div>
-          <button type="button"  className={theme? 'text-light btn btn-card m-5': 'text-black btn btn-card m-5'}>
+          <button  onClick={handleAllFragrance} type="button"  className={theme? 'text-light btn btn-card m-5': 'text-black btn btn-card m-5'}>
           View all
             </button>
         </div>

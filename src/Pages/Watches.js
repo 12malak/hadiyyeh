@@ -10,7 +10,7 @@ import {Image } from 'react-bootstrap'; // Import necessary components
 import slider1 from '../images/slider1.webp';
 import slider2 from '../images/WATCHES7-removebg-preview.png';
 import { useThemeHook } from '../GlobalComponents/ThemeProvider';
-
+import { useNavigate } from 'react-router-dom';
 const settings = {
   speed: 300,
   slidesToShow: 6,
@@ -124,6 +124,12 @@ const products = [
 const Watches = () => {
  
   const [theme] = useThemeHook();
+   
+  const navigate = useNavigate();
+  const handleAllWatche = () => {
+ 
+    navigate('/allWatche');
+};
   return (
     
      
@@ -178,7 +184,7 @@ const Watches = () => {
 </Slider>
 
         </div>
-        <button type="button"  className={theme? 'text-light btn btn-card m-5': 'text-black btn btn-card m-5'}>
+        <button  onClick={handleAllWatche} type="button"  className={theme? 'text-light btn btn-card m-5': 'text-black btn btn-card m-5'}>
         View all
           </button>
       </div>

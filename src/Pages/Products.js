@@ -8,7 +8,7 @@ import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import { Container, Row, Col , Form} from 'react-bootstrap';
 import { IoFilterCircleOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
-import RightCart from '../components/RightCart';
+
 // Sample Product Data
 const products = [
     {
@@ -155,7 +155,7 @@ const products = [
 // Set items per page to 16
 const ITEMS_PER_PAGE = 16;
 
-function Allproducts({cartItems  }) {
+function Products() {
     const [theme] = useThemeHook();
     const [currentPage, setCurrentPage] = useState(1);
     const [isOpen, setIsOpen] = useState(false);
@@ -348,14 +348,9 @@ function Allproducts({cartItems  }) {
                     </a>
                 </div>
             </div>
-         {/* Include the RightCart component */}
-         <RightCart 
-                cartItems={cartItems} 
-                isCanvasOpen={isCanvasOpen} 
-                toggleCanvas={toggleCanvas} 
-            />
+       
         </section>
     );
 }
 
-export default Allproducts;
+export default Products

@@ -6,62 +6,49 @@ import { BsInstagram } from "react-icons/bs";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { ThemeContext } from '../GlobalComponents/ThemeProvider';
 import '../Css/appFooter.css'
+import { useNavigate ,useLocation} from 'react-router-dom';
 function AppFooter() {
   const { theme, setThemeMode } = useContext(ThemeContext); 
-  const [darkMode, setDarkMode] = useState(theme);
+  const navigate = useNavigate();
+  const location = useLocation();
+ // Get the current language from the path or default to 'en'
+ const lang = location.pathname.split('/')[1] || 'en';
+  
+ // Default selected option to the current language from the URL
+ const [selectedOption, setSelectedOption] = useState(lang);
+
+ const handleSelection = (event) => {
+   const newLang = event.target.value;
+   setSelectedOption(newLang);
+
+   // Construct the new URL with the new language
+   const newPath = `/${newLang}${location.pathname.substring(lang.length + 1)}`; // Adjust path for new language
+
+   // Navigate to the new URL
+   navigate(newPath);
+ };
+
+ // Optionally, update the selected option if the language in the URL changes (e.g., through manual URL entry)
+ useEffect(() => {
+   setSelectedOption(lang);
+ }, [lang]);
     return (
-        <footer  className={` text-lg-start footer ${theme ? 'bg-light-black text-light' : 'bg-light text-black'}`}>
-            <Container className="p-3">
-                {/* <Row className="justify-content-center">
-                    <Col lg={12} className="mb-4 mb-lg-0">
-                        <ul className="list-unstyled d-flex justify-content-center mb-3">
-                            <li className="ms-3">
-                                <a href="#!" className={theme ? ' link-Footer' : 'text-black  link-Footer'}>
-                                ABOUT US 
-                                </a>
-                            </li>
-                            <li className="ms-3">
-                                <a href="#!" className={theme ? ' link-Footer' : 'text-black link-Footer'}>
-                                PRIVACY POLICY
-                                </a>
-                            </li>
-                            <li className="ms-3">
-                                <a href="#!" className={theme ? ' link-Footer' : 'text-black link-Footer'}>
-                                RETURN & REFUND POLICY 
-                                </a>
-                            </li>
-                            <li className="ms-3">
-                                <a href="#!" className={theme ? ' link-Footer' : 'text-black link-Footer'}>
-                                FAQ 
-                                </a>
-                            </li>
-                            <li className="ms-3">
-                                <a href="#!" className={theme ? 'link-Footer' : 'text-black link-Footer'}>
-                                TERMS OF SERVICE 
-                                </a>
-                            </li>
-                            <li className="ms-3">
-                                <a href="#!" className={theme ? ' link-Footer' : 'text-black link-Footer'}>
-                                EMAIL US
-                                </a>
-                            </li>
-                            <li className="ms-3">
-                                <a href="#!" className={theme ? 'link-Footer' : 'text-black link-Footer'}>
-                                CONTACT US
-                                </a>
-                            </li>
-                        </ul>
-                    </Col>
-                </Row> */}
-            <Row className="justify-content-between align-items-center">
-    <Col lg={6} className="text-start">
-        <h6 className="text-uppercase">JOIN OUR FAMILY</h6>
-        <Form.Group className="mb-3 position-relative">
-            <IoIosArrowRoundForward 
+      
+        <footer  className={`  footer ${theme ? 'bg-light-black text-light' : 'bg-light text-black'}`}>
+            <Container className=" p-3">
+          
+            <Row className="d-flex justify-content-between ">
+    <Col lg={8} className="">
+        <h6 className="text-uppercase">
+
+        {lang === "ar" ? "انضم إلى عائلتنا  " : "JOIN OUR FAMILY"}
+        </h6>
+        <Form.Group className="mb-3 position-relative w-50">
+            {/* <IoIosArrowRoundForward 
                 size="1.5rem" 
                 className="position-absolute" 
                 style={{ right: '10px', top: '50%', transform: 'translateY(-50%)', color: '#6c757d' }} 
-            />
+            /> */}
             <Form.Control 
                 name="email" 
                 type="email" 
@@ -71,7 +58,7 @@ function AppFooter() {
         </Form.Group>
     </Col>
 
-    <Col lg={6} className="text-end">
+    <Col lg={4} className="">
         {/* Social media icons */}
         <FaFacebook size="1.1rem" className="ms-3" />
         <RiTiktokFill size="1.1rem" className="ms-3" />
@@ -93,20 +80,28 @@ function AppFooter() {
 
 
                 <hr/>
-                <Row className="text-start g-0">
-  <Col lg={6} className="text-start style-formG m-2">
+                <Row className=" g-0">
+  <Col lg={6} className=" style-formG m-2">
     <Form.Group className="mb-3"> {/* Adjusted to full width */}
-      <Form.Label>Language</Form.Label>
-      <Form.Select name="language" required>
-        <option value="en" className={theme? 'bg-light-black text-light ': 'bg-light text-black'}>English</option>
-        <option value="es" className={theme? 'bg-light-black text-light ': 'bg-light text-black'}>العربي</option>
-      </Form.Select>
+      <Form.Label>
+
+      {lang === "ar" ? "  اللغه " : "Language"}
+      </Form.Label>
+      <div  className="dropdown-wrapper">
+      <select className="form-select " value={selectedOption} onChange={handleSelection}>
+        <option value="en">En</option>
+        <option value="ar">Ar</option>
+      </select>
+    </div>
     </Form.Group>
   </Col>
-
-  <Col lg={6} className="text-start style-formG m-2">
+ 
+  <Col lg={6} className=" style-formG m-2">
     <Form.Group className="mb-3"> {/* Adjusted to full width */}
-      <Form.Label>Country/Region</Form.Label>
+      <Form.Label>
+
+      {lang === "ar" ? " البلد/المنطقة  " : "Country/Region"}
+      </Form.Label>
       <Form.Select  name="country"  required>
         <option value="us" className={theme? 'bg-light-black text-light ': 'bg-light text-black'}>Jordan</option>
         <option value="uk" className={theme? 'bg-light-black text-light ': 'bg-light text-black'}>Palestinian</option>
@@ -114,27 +109,31 @@ function AppFooter() {
     </Form.Group>
   </Col>
 </Row>
-<Row className="justify-content-start">
+<Row className="">
   <Col lg={12} className="mt-4 mb-lg-0">
     <ul className="list-unstyled d-flex flex-column flex-lg-row justify-content-start mt-3">
       <li className="ms-3 mb-2 mb-lg-0">
         <a href="/" className={theme ? 'linkbottom-Footer' : 'text-black linkbottom-Footer'}>
-          © 2024, Hadiyyeh 
+         
+          {lang === "ar" ? "  هديه"  : "  © 2024, Hadiyyeh "}
         </a>
       </li>
       <li className="ms-3 mb-2 mb-lg-0">
-        <a href="/refund" className={theme ? 'linkbottom-Footer' : 'text-black linkbottom-Footer'}>
-          Refund policy
+        <a href={`/${lang}/refund`} className={theme ? 'linkbottom-Footer' : 'text-black linkbottom-Footer'}>
+         
+           {lang === "ar" ? " سياسة الاسترجاع " : " Refund policy"}
         </a>
       </li>
       <li className="ms-3 mb-2 mb-lg-0">
-        <a href="/privacy" className={theme ? 'linkbottom-Footer' : 'text-black linkbottom-Footer'}>
-          Privacy policy
+        <a href={`/${lang}/privacy`} className={theme ? 'linkbottom-Footer' : 'text-black linkbottom-Footer'}>
+          
+          {lang === "ar" ? " سياسة الخصوصية " : "Privacy policy"}
         </a>
       </li>
       <li className="ms-3 mb-2 mb-lg-0">
-        <a href="/terms" className={theme ? 'linkbottom-Footer' : 'text-black linkbottom-Footer'}>
-          Terms of service
+        <a href={`/${lang}/terms`} className={theme ? 'linkbottom-Footer' : 'text-black linkbottom-Footer'}>
+        
+          {lang === "ar" ? "شروط الخدمة" : "  Terms of service"}
         </a>
       </li>
     </ul>

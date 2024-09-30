@@ -130,7 +130,7 @@ const Cardes = () => {
     <section className={theme? 'bg-light-black text-light margin_section full-screen-slider': 'bg-light text-black margin_section full-screen-slider'} data-aos="fade-up">
     <div className="container-fluid text-center">
        
-        <h3 className={theme? 'text-light we_help_you_home m-5': 'text-black we_help_you_home m-5'}>NEW ARRIVALS</h3>
+        <h3 className={theme? 'text-light we_help_you_home m-5': 'text-black we_help_you_home m-5'}>LATEST ARRIVALS</h3>
       
 
         <div className="row mt-5">
@@ -183,12 +183,12 @@ const Cardes = () => {
 
 </Slider>
         </div>
-        <button type="button"  className={theme? 'text-light btn btn-card m-5': 'text-black btn btn-card m-5'}
+        {/* <button type="button"  className={theme? 'text-light btn btn-card m-5': 'text-black btn btn-card m-5'}
         
      
         >
           View all
-          </button>
+          </button> */}
       </div>
     </section>
 

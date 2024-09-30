@@ -6,7 +6,7 @@
   transition: color 0.3s ease-in-out;
 }
 .linkbottom-Footer{
-
+margin: 0px;
   display: block;
   color: #888;
   text-decoration: none;

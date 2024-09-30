@@ -10,9 +10,20 @@ import Bags from './Bags';
 import Brands from './Brandes';
 import Opinions from './Opinions';  
 import Blogs from './Blogs';  
+import { useNavigate ,useLocation} from 'react-router-dom';
 import { useThemeHook } from '../GlobalComponents/ThemeProvider';
 const Home = () => {
     const [theme] = useThemeHook();
+    const navigate = useNavigate();
+    const location = useLocation();
+    const lang = location.pathname.split("/")[1] || "en";
+    console.log("language: " + lang);
+
+
+    const handleAllFragrance= () => {
+   
+      navigate('/allFragrance');
+  };
     return (
         <div >
         <Carousel interval={2000} className="responsive-carousel">
@@ -26,13 +37,15 @@ const Home = () => {
                     <Container >
                         <Row className="justify-content-center">
                             <Col md={8} className="text-center titel-home">
-                                <h3 className={theme? 'text-light my-3': 'text-black my-3'}>EXPLORE OUR SCENTS</h3>
+                                <h3 className={theme? 'text-light my-3': 'text-black my-3'}>
+                                {lang === "ar" ? "ابقى على اتصال" : "EXPLORE OUR SCENTS"}
+                                </h3>
                                 <p  className={theme? 'text-light': 'text-black '}>
-                                    YOUR SCENT CAN EXPRESS YOUR PERSONALITY, PRESENCE, AND YOUR STYLE.
-                                    EMBRACE YOUR PRESENCE WITH OUR EXQUISITE COLLECTION OF FRAGRANCES.
+                                   
+                                    {lang === "ar" ? "يمكن لرائحتك أن تعبر عن شخصيتك وحضورك وأسلوبك.احتضن حضورك مع مجموعتنا الرائعة من العطور  " : " YOUR SCENT CAN EXPRESS YOUR PERSONALITY, PRESENCE, AND YOUR STYLE.EMBRACE YOUR PRESENCE WITH OUR EXQUISITE COLLECTION OF FRAGRANCES."}
                                 </p>
                                 {/* <Button variant="outline-secondary" className="SHOP">SHOP FRAGRANCES</Button> */}
-                                <button type="button" className={theme? 'text-light btn m-3': 'text-black btn m-3'} >SHOP FRAGRANCES</button>
+                                <button onClick={handleAllFragrance} type="button" className={theme? 'text-light btn m-3': 'text-black btn m-3'} >SHOP FRAGRANCES</button>
                             </Col>
                         </Row>
                     </Container>

@@ -10,7 +10,7 @@ import {Image } from 'react-bootstrap'; // Import necessary components
 
 import slider3 from '../images/images-removebg-preview.png';
 import { useThemeHook } from '../GlobalComponents/ThemeProvider';
-
+import { useNavigate } from 'react-router-dom';
 const settings = {
   speed: 300,
   slidesToShow: 6,
@@ -124,6 +124,11 @@ const products = [
 function Bags() {
     const [theme] = useThemeHook();
     
+    const navigate = useNavigate();
+    const handleAllBag = () => {
+   
+      navigate('/allBag');
+  };
     return (
       
        
@@ -178,7 +183,7 @@ function Bags() {
   </Slider>
   
           </div>
-          <button type="button"  className={theme? 'text-light btn btn-card m-5': 'text-black btn btn-card m-5'}>
+          <button   onClick={handleAllBag} type="button"  className={theme? 'text-light btn btn-card m-5': 'text-black btn btn-card m-5'}>
           View all
             </button>
         </div>
