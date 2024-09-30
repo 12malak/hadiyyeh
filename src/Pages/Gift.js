@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import slider2 from '../images/50Image.webp';
 import slider3 from '../images/25Image.webp';
 import slider4 from '../images/100Image.webp';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 import { IoMdAdd } from "react-icons/io";
 import { FiMinus } from "react-icons/fi";
@@ -34,6 +34,9 @@ function Gift() {
   const [isGift, setIsGift] = useState(false); // Manage visibility of the gift form
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+  const lang = location.pathname.split('/')[1] || 'en';
+
     const toggleOffcanvas = () => {
         setIsOpen(!isOpen);
     };
@@ -51,7 +54,8 @@ function Gift() {
   };
   const handleGiftDetails = () => {
    
-    navigate('/giftDetails');
+  
+    navigate(`/${lang}/giftDetails`);
 };
   const handleCloseModal = () => setShowModal(false);
   const handleQuantityChange = (itemId, action) => {

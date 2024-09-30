@@ -10,12 +10,16 @@ import slider1 from '../images/WATCHES2.jpg';
 import { Link } from "react-router-dom";
 import { TiArrowSortedDown } from "react-icons/ti";
 import { MdLocalOffer } from "react-icons/md";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate , useLocation} from 'react-router-dom';
 const Cart = () => {
     const [theme] = useThemeHook();
     const [showGiftModal, setShowGiftModal] = useState(false);
     const [selectedItem, setSelectedItem] = useState(null);
     const navigate = useNavigate();
+    const location = useLocation();
+    const lang = location.pathname.split('/')[1] || 'en';
+
+    
     const {
         isEmpty,
         items,
@@ -38,7 +42,7 @@ const Cart = () => {
     };
     const handleCheckout = () => {
         handleClose();
-        navigate('/cheakOut');
+        navigate(`/${lang}/cheakOut`);
     };
 
     return (

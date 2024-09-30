@@ -7,7 +7,7 @@ import { IoMdAdd } from "react-icons/io";
 import { FiMinus } from "react-icons/fi";
 import { FaRegTrashCan } from "react-icons/fa6";
 import { TiArrowSortedDown } from "react-icons/ti";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 
 
@@ -15,6 +15,10 @@ const RightCart = ({ cartItems, isCanvasOpen, toggleCanvas }) => {
     const isEmpty = cartItems.length === 0;
     const [theme] = useThemeHook();
     const [showGiftModal, setShowGiftModal] = useState(false);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const lang = location.pathname.split('/')[1] || 'en';
+
     // State to track the visibility of the special instructions text box for each item
    
     const [specialInstructionsVisible, setSpecialInstructionsVisible] = useState(false);
@@ -22,11 +26,12 @@ const RightCart = ({ cartItems, isCanvasOpen, toggleCanvas }) => {
     const handleToggleInstructions = () => {
         setSpecialInstructionsVisible((prevState) => !prevState);
     };
-    const navigate = useNavigate();
+  
 
     const handleCheckout = () => {
         handleClose();
-        navigate('/cheakOut');
+       
+        navigate(`/${lang}/cheakOut`);
     };
  
 

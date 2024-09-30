@@ -69,12 +69,12 @@ const App = () => {
   return (
     <>
     
-      
+    <RedirectToDefaultLanguage />
+    <DirectionHandler /> {/* Handle direction change */}
       <Header cartItems={cartItems} />
       <RightCart cartItems={cartItems} setCartItems={setCartItems} theme={theme} />
       <main className={theme ? 'bg-light-black' : 'bg-light'} style={{ paddingTop: '100px' }}>
-      <RedirectToDefaultLanguage />
-      <DirectionHandler /> {/* Handle direction change */}
+    
         <Routes>
           <Route path="/:lang/allproducts" element={<Allproducts setCartItems={setCartItems} cartItems={cartItems} />} />
           <Route path="/:lang/cheakOut" element={<CheakOut products={cartItems} />} />
@@ -97,8 +97,8 @@ const App = () => {
           <Route path="/:lang/allFragrance" element={<AllFragrance />} />
         </Routes>
         
-        {/* Conditionally render the footer */}
-        {location.pathname !== '/:lang/cart' && <AppFooter />}
+         {/* Conditionally render the footer if the path is NOT '/cart' */}
+         {!location.pathname.includes('/cart') && <AppFooter />}
       </main>
     </>
   );

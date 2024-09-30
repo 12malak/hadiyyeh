@@ -1,7 +1,7 @@
 import React,{ useState} from 'react';
 import { Container, Row, Col, Button, Form, Spinner, InputGroup} from 'react-bootstrap';
 import { useThemeHook } from '../GlobalComponents/ThemeProvider';
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 //icons
 import { MdOutlineAlternateEmail } from "react-icons/md";
@@ -12,6 +12,8 @@ const SignIn = () => {
     const [loading, setLoading] = useState(false);
     const [theme] = useThemeHook();
     const navigate = useNavigate();
+    const location = useLocation();
+    const lang = location.pathname.split('/')[1] || 'en';
 
     const handleSubmit = (event)=>{
         const form = event.currentTarget;
@@ -80,11 +82,11 @@ const SignIn = () => {
                         </Button>
                         <Form.Group className="mt-3 text-center">
                            
-                            <Link to='/register' className="text-muted">
+                            <Link to={`/${lang}/register`} className="text-muted">
                             Forgot your password?
                             </Link>
                             <Row className="py-2 border-bottom mb-3"/>
-                            <Link to='/register' className="btn btn-info rounded-0">
+                            <Link to={`/${lang}/register`} className="btn btn-info rounded-0">
                             Create account
                             </Link>
                         </Form.Group>

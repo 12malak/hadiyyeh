@@ -18,7 +18,7 @@ import { LuShare2 } from "react-icons/lu";
 import { FiMinus } from 'react-icons/fi';
 import { IoMdAdd } from 'react-icons/io';
 import { BsCartCheck } from 'react-icons/bs';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate , useLocation} from 'react-router-dom';
 const ProductDetails = () => {
     const [theme] = useThemeHook();
     const { addItem } = useCart();
@@ -26,11 +26,15 @@ const ProductDetails = () => {
     const [largeImage, setLargeImage] = useState(slider2);
     const [activeImage, setActiveImage] = useState(slider2); 
     const navigate = useNavigate();
+    const location = useLocation();
+    const lang = location.pathname.split('/')[1] || 'en';
+
 
 
     const handleCheckout = () => {
       
-        navigate('/cheakOut');
+       
+      navigate(`/${lang}/cheakOut`);
     };
 
   // Handle quantity increase and decrease
@@ -180,7 +184,7 @@ const ProductDetails = () => {
                                 <BsCartCheck size="1.7rem" />
                                Buy it now
                             </Button>
-                    <p className="mt-3 h5" style={{ opacity: '0.8',lineHeight:"2" }}>
+                    <p className="mt-3 h6" style={{ opacity: '0.8',lineHeight:"2" }}>
                         {productData.description}
                     </p>
                     <div className={`mt-5  ${theme ? 'text-light' : 'text-black'}`}> 
